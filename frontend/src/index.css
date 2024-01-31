@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  @apply max-w-screen-lg mx-auto px-6 py-4;
+}
+
+body {
+  @apply bg-slate-50;
+}
