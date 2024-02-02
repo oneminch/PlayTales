@@ -12,7 +12,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^11.0.3"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
