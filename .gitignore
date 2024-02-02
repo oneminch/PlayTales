@@ -157,3 +157,4 @@ dist
 # IDE
 .hintrc
 *.code-workspace
+Template.tsx
