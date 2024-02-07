@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
 import Nav from "./Nav";
-import Search from "./Search";
+import Search from "../Search";
+import IconLink from "../IconLink";
 
 const Header = () => {
   return (
     <header className="flex items-center justify-between">
-      <Link to="/">🎮</Link>
+      <IconLink path="/" icon="material-symbols:stadia-controller" />
       <Search />
       <Nav />
     </header>

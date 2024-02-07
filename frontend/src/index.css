@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  @apply max-w-screen-lg mx-auto px-6 py-4;
+@layer utilities {
+  .global-focus {
+    @apply outline-none ring-2 ring-offset-0 ring-amber-300;
+  }
+}
+
+:root {
+  --swiper-theme-color: rgb(251, 191, 36);
 }
 
 body {
-  @apply bg-slate-50;
+  @apply bg-gray-50;
 }
+
+#root {
+  @apply min-w-96 max-w-screen-xl mx-auto px-6 py-4;
+}
+
+/* .swiper-button-prev,
+.swiper-button-next {
+  @apply bg-white/75;
+} */
