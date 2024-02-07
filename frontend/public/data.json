@@ -1,0 +1,121 @@
+[
+  {
+    "id": "cyberpunk-2077",
+    "title": "Cyberpunk 2077",
+    "posterImage": "/images/cyberpunk-2077.png",
+    "discount": 0,
+    "price": 59.99,
+    "screenshots": [
+      "/images/cyberpunk-2077-1.jpg",
+      "/images/cyberpunk-2077-2.jpg",
+      "/images/cyberpunk-2077-3.jpg",
+      "/images/cyberpunk-2077-4.jpg"
+    ]
+  },
+  {
+    "id": "shadow-of-the-tomb-raider",
+    "title": "Shadow of the Tomb Raider",
+    "posterImage": "/images/shadow-of-the-tomb-raider.png",
+    "discount": 25,
+    "price": 59.99,
+    "screenshots": [
+      "/images/shadow-of-the-tomb-raider-1.jpg",
+      "/images/shadow-of-the-tomb-raider-2.jpg"
+    ]
+  },
+  {
+    "id": "a-plague-tale-innocence",
+    "title": "A Plague Tale: Innocence",
+    "posterImage": "/images/a-plague-tale-innocence.png",
+    "discount": 50,
+    "price": 59.99,
+    "screenshots": [
+      "/images/a-plague-tale-innocence-1.jpg",
+      "/images/a-plague-tale-innocence-2.jpg",
+      "/images/a-plague-tale-innocence-3.jpg",
+      "/images/a-plague-tale-innocence-4.jpg",
+      "/images/a-plague-tale-innocence-5.jpg"
+    ]
+  },
+  {
+    "id": "a-plague-tale-requiem",
+    "title": "A Plague Tale: Requiem",
+    "posterImage": "/images/a-plague-tale-requiem.png",
+    "discount": 15,
+    "price": 59.99,
+    "screenshots": [
+      "/images/a-plague-tale-requiem-1.jpg",
+      "/images/a-plague-tale-requiem-2.jpg",
+      "/images/a-plague-tale-requiem-3.jpg",
+      "/images/a-plague-tale-requiem-4.jpg"
+    ]
+  },
+  {
+    "id": "the-witcher-3-wild-hunt",
+    "title": "The Witcher 3: Wild Hunt",
+    "posterImage": "/images/the-witcher-3-wild-hunt.png",
+    "discount": 10,
+    "price": 59.99,
+    "screenshots": [
+      "/images/the-witcher-3-wild-hunt-1.jpg",
+      "/images/the-witcher-3-wild-hunt-2.jpg",
+      "/images/the-witcher-3-wild-hunt-3.jpg",
+      "/images/the-witcher-3-wild-hunt-4.jpg"
+    ]
+  },
+  {
+    "id": "god-of-war",
+    "title": "God of War",
+    "posterImage": "/images/god-of-war.png",
+    "discount": 10,
+    "price": 59.99,
+    "screenshots": ["/images/god-of-war-1.jpeg", "/images/god-of-war-2.jpeg"]
+  },
+  {
+    "id": "god-of-war-ragnarok",
+    "title": "God of War Ragnarök",
+    "posterImage": "/images/god-of-war-ragnarok.png",
+    "discount": 10,
+    "price": 59.99,
+    "screenshots": [
+      "/images/god-of-war-ragnarok-1.jpg",
+      "/images/god-of-war-ragnarok-2.jpg",
+      "/images/god-of-war-ragnarok-3.jpg"
+    ]
+  },
+  {
+    "id": "cyberpunk-2077-phantom-liberty",
+    "title": "Cyberpunk 2077: Phantom Liberty",
+    "posterImage": "/images/cyberpunk-2077-phantom-liberty.png",
+    "discount": 15,
+    "price": 69.99,
+    "screenshots": [
+      "/images/cyberpunk-2077-phantom-liberty-1.jpg",
+      "/images/cyberpunk-2077-phantom-liberty-2.jpg"
+    ]
+  },
+  {
+    "id": "the-last-of-us-part-i",
+    "title": "The Last of Us Part I",
+    "posterImage": "/images/last-of-us-i.png",
+    "discount": 20,
+    "price": 59.99,
+    "screenshots": [
+      "/images/last-of-us-i-1.jpg",
+      "/images/last-of-us-i-2.jpg",
+      "/images/last-of-us-i-3.jpg"
+    ]
+  },
+  {
+    "id": "the-last-of-us-part-ii",
+    "title": "The Last of Us Part II",
+    "posterImage": "/images/last-of-us-ii.png",
+    "discount": 20,
+    "price": 59.99,
+    "screenshots": [
+      "/images/last-of-us-ii-1.jpg",
+      "/images/last-of-us-ii-2.jpg",
+      "/images/last-of-us-ii-3.jpg"
+    ]
+  }
+]
