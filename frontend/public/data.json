@@ -1,5 +1,30 @@
 [
   {
+    "id": "sw-jedi-fallen-order",
+    "title": "Star Wars Jedi: Fallen Order",
+    "posterImage": "/images/sw-jedi-fallen-order.png",
+    "discount": 15,
+    "price": 59.99,
+    "screenshots": [
+      "/images/sw-jedi-fallen-order-1.jpg",
+      "/images/sw-jedi-fallen-order-2.jpg",
+      "/images/sw-jedi-fallen-order-3.jpg",
+      "/images/sw-jedi-fallen-order-4.jpg"
+    ]
+  },
+  {
+    "id": "sw-jedi-survivor",
+    "title": "Star Wars Jedi: Survivor",
+    "posterImage": "/images/sw-jedi-survivor.png",
+    "discount": 0,
+    "price": 59.99,
+    "screenshots": [
+      "/images/sw-jedi-survivor-1.jpg",
+      "/images/sw-jedi-survivor-2.jpg",
+      "/images/sw-jedi-survivor-3.jpg"
+    ]
+  },
+  {
     "id": "cyberpunk-2077",
     "title": "Cyberpunk 2077",
     "posterImage": "/images/cyberpunk-2077.png",
@@ -48,6 +73,18 @@
       "/images/a-plague-tale-requiem-2.jpg",
       "/images/a-plague-tale-requiem-3.jpg",
       "/images/a-plague-tale-requiem-4.jpg"
+    ]
+  },
+  {
+    "id": "sw-outlaws",
+    "title": "Star Wars Outlaws",
+    "posterImage": "/images/sw-outlaws.png",
+    "discount": 0,
+    "price": 59.99,
+    "screenshots": [
+      "/images/sw-outlaws-1.jpg",
+      "/images/sw-outlaws-2.jpg",
+      "/images/sw-outlaws-3.jpg"
     ]
   },
   {
