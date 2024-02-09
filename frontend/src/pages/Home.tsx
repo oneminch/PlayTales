@@ -1,30 +1,70 @@
-import GameTitleCard from "@/components/GameTitleCard";
+import { Pagination } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import GameTitleCard from "@/components/GameItemCard";
 import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
-import games from "@/data";
+import { GameTitle } from "@/types";
 
 const Home = () => {
+  const [games, setGames] = useState<GameTitle[]>([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetch("/data.json");
+      const jsonData = await data.json();
+
+      setGames(jsonData);
+    };
+    getData();
+  }, []);
+
   return (
     <>
       <Hero
-        className="bg-white border border-gray-200 mt-4 mb-2 pt-10 pb-6"
-        textLabel="Play Your Next Favorite Story."
+        className="bg-white border border-gray-200 pt-10 pb-6"
+        textLabel="Play Your Next Story."
         actionLink={{ label: "Browse", url: "#browse" }}
       />
-      <div
-        className="flex flex-col md:flex-row items-start gap-y-4 md:gap-y-0 md:gap-x-4 py-4"
-        id="browse"
-      >
-        <Filter />
+      <div className="flex flex-col items-start gap-y-4" id="browse">
+        <div className="flex flex-col sm:flex-row items-center w-full gap-y-4 sm:gap-y-0 sm:gap-x-4">
+          <Filter
+            label="Genre"
+            options={[
+              { label: "Action", value: "action" },
+              { label: "Adventure", value: "adventure" },
+              { label: "Indie", value: "indie" },
+              { label: "Puzzle", value: "puzzle" },
+              { label: "RPG", value: "rpg" },
+              { label: "Shooter", value: "shooter" },
+              { label: "Sports", value: "sports" },
+              { label: "Strategy", value: "strategy" }
+            ]}
+          />
+          <Filter
+            label="Sort"
+            options={[
+              { label: "Title: A-Z", value: "title-asc" },
+              { label: "Title: Z-A", value: "title-desc" },
+              { label: "Price: Low to High", value: "price-asc" },
+              { label: "Price: High to Low", value: "price-desc" }
+            ]}
+          />
+        </div>
         <article className="w-full min-h-96 rounded-lg">
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-            {games.map((game) => (
-              <li className="mx-auto mb-2" key={game.title}>
+          {!games && <p>Loading...</p>}
+          <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+            {games!.map((game) => (
+              <li className="w-full mb-2" key={game.title}>
                 <GameTitleCard game={game} />
               </li>
             ))}
           </ul>
         </article>
+        <Pagination
+          className="mx-auto my-6"
+          total={Math.ceil(games!.length / 8)}
+          initialPage={1}
+        />
       </div>
     </>
   );
