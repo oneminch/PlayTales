@@ -37,7 +37,7 @@ const Hero = ({
         </h2>
         <Link
           href={actionLink.url}
-          className="px-4 py-1.5 rounded-lg font-medium bg-gray-900 text-gray-50 focus:global-focus"
+          className="px-4 py-1.5 rounded-lg font-medium bg-gray-900 text-gray-50"
         >
           {actionLink.label}
         </Link>

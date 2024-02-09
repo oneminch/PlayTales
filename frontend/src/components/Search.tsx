@@ -24,7 +24,7 @@ const Search = () => {
             size="sm"
             type="submit"
             aria-label="Search"
-            className="focus:global-focus bg-gray-900 text-white text-lg h-8 w-8 rounded-lg flex items-center justify-center shrink-0"
+            className="bg-gray-900 text-white text-lg h-8 w-8 rounded-lg flex items-center justify-center shrink-0"
           >
             <Icon icon="heroicons:magnifying-glass-20-solid" />
           </Button>
