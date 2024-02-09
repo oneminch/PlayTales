@@ -11,7 +11,8 @@ const Carousel = ({ children }: { children: React.ReactNode }) => {
       pagination={{
         clickable: true,
         dynamicBullets: true,
-        clickableClass: "bg-white/85 px-3 py-1 rounded-full shadow"
+        clickableClass:
+          "bg-gray-900/85 ring-1 ring-gray-600 px-3 py-1 rounded-full shadow"
       }}
       loop={true}
       navigation={true}
