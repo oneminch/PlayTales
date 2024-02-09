@@ -10,7 +10,7 @@ const Root = () => {
     <NextUIProvider navigate={navigate}>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="grow">
+        <main className="grow py-4 space-y-6">
           <Outlet />
         </main>
         <Footer />
