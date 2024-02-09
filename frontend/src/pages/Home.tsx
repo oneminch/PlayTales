@@ -4,6 +4,7 @@ import GameTitleCard from "@/components/GameItemCard";
 import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
 import { GameTitle } from "@/types";
+import Banner from "@/components/partials/Banner";
 
 const Home = () => {
   const [games, setGames] = useState<GameTitle[]>([]);
@@ -66,6 +67,11 @@ const Home = () => {
           initialPage={1}
         />
       </div>
+      <Banner
+        className="bg-white border border-gray-200"
+        textLabel="Become a Member & Save More."
+        actionLink={{ label: "Join Now", url: "/signup" }}
+      />
     </>
   );
 };
