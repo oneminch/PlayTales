@@ -7,4 +7,9 @@ interface GameTitle {
   screenshots: string[];
 }
 
-export type { GameTitle };
+interface FilterInterface {
+  label: string;
+  options: { label: string; value: string }[];
+}
+
+export type { FilterInterface, GameTitle };
