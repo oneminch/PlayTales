@@ -1,37 +1,70 @@
-import { Button } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { FilterInterface } from "@/types";
+import { Icon } from "@iconify/react";
 
-const FILTERS = [
-  "Action",
-  "Adventure",
-  "Indie",
-  "Puzzle",
-  "RPG",
-  "Shooter",
-  "Sports",
-  "Strategy"
-];
+const urlSearchParamsToObject = (searchParams: URLSearchParams) => {
+  const result: Record<string, string> = {};
 
-const Filter = () => {
-  const [, setFilter] = useSearchParams();
+  searchParams.sort();
+  for (const [key, value] of searchParams.entries()) {
+    result[key] = value;
+  }
+  return result;
+};
 
-  const handleSetFilter = (filter: string) => {
-    setFilter({ category: filter });
-  };
+const Filter = ({ label, options }: FilterInterface) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [selectedValue, setSelectedValue] = useState(() => {
+    const activeParam = searchParams.get(label.toLowerCase());
+    return activeParam ? new Set([activeParam]) : new Set([]);
+  });
+
+  useEffect(() => {
+    const filterLabel = label.toLowerCase();
+
+    if (selectedValue.size > 0) {
+      const currValue = Array.from(selectedValue)[0];
+
+      setSearchParams((currentParams) => {
+        currentParams.set(filterLabel, currValue);
+        currentParams.sort();
+        return urlSearchParamsToObject(currentParams);
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedValue]);
+
+  useEffect(() => {
+    const filterLabel = label.toLowerCase();
+    if (!searchParams.get(filterLabel)) {
+      setSelectedValue(new Set([]));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   return (
-    <aside className="flex flex-row md:flex-col items-center md:items-start justify-between md:justify-start py-4 px-6 md:space-y-4 w-full md:w-1/5 shrink-0 bg-white border border-gray-200 rounded-lg">
-      <h2 className="text-xl font-bold text-gray-700 mr-4">Genres</h2>
-      <ul className="w-1/2 flex flex-row md:flex-col items-start justify-between md:justify-start md:space-y-2">
-        {FILTERS.map((filter) => (
-          <li key={filter}>
-            <Button onClick={() => handleSetFilter(filter.toLowerCase())}>
-              {filter}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <Select
+      label={label}
+      size="sm"
+      placeholder="Select an option"
+      selectedKeys={selectedValue}
+      className="sm:max-w-xs"
+      classNames={{
+        trigger: "rounded-lg border border-gray-200 bg-white",
+        popoverContent: "rounded-lg"
+      }}
+      onSelectionChange={setSelectedValue}
+      selectorIcon={<Icon icon="heroicons:chevron-up-down-20-solid" />}
+    >
+      {options.map((option: { label: string; value: string }) => (
+        <SelectItem key={option.value} value={option.value}>
+          {option.label}
+        </SelectItem>
+      ))}
+    </Select>
   );
 };
 
