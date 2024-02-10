@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Image, Link } from "@nextui-org/react";
-import { GameTitle } from "@/types";
+import { GameItem } from "@/types";
 
 const getMultipleRandom = (arr: string[], num: number) => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
@@ -24,7 +24,7 @@ const Hero = ({
       const data = await fetch("/data.json");
       const jsonData = await data.json();
 
-      const allPosters = jsonData.map((game: GameTitle) => game.posterImage);
+      const allPosters = jsonData.map((game: GameItem) => game.posterImage);
       setPosters(getMultipleRandom(allPosters, 3));
     };
     getData();

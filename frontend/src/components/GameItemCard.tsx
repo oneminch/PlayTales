@@ -1,10 +1,10 @@
 import { Icon } from "@iconify/react";
 import { Button, Image } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
-import type { GameTitle } from "@/types";
+import type { GameItem } from "@/types";
 import GamePriceText from "./GamePriceText";
 
-const GameTitleCard = ({ game }: { game: GameTitle }) => {
+const GameItemCard = ({ game }: { game: GameItem }) => {
   return (
     <Link
       href={`/games/${game.id}`}
@@ -30,4 +30,4 @@ const GameTitleCard = ({ game }: { game: GameTitle }) => {
   );
 };
 
-export default GameTitleCard;
+export default GameItemCard;
