@@ -12,7 +12,7 @@ const Hero = ({
 }) => {
   return (
     <section
-      className={`flex items-center flex-col md:flex-row h-96 md:h-72 rounded-lg w-full overflow-hidden relative ${className}`}
+      className={`flex items-center flex-col md:flex-row h-96 md:h-72 rounded-xl w-full overflow-hidden relative ${className}`}
     >
       <div
         className="w-full md:w-1/2 h-1/2 md:h-full"
@@ -37,7 +37,7 @@ const Hero = ({
         </h2>
         <Link
           href={actionLink.url}
-          className="px-4 py-1.5 rounded-lg font-medium bg-gray-900 text-gray-50"
+          className="px-4 py-1.5 rounded-xl font-medium bg-gray-900 text-gray-50"
         >
           {actionLink.label}
         </Link>

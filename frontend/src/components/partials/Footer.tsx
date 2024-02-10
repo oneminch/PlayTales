@@ -54,13 +54,10 @@ const Footer = () => {
           <h3 className="font-semibold text-gray-700 mb-2">Customer</h3>
           <ul className="text-sm">
             <li>
-              <Link href="#">Returns</Link>
+              <Link href="#">Refunds</Link>
             </li>
             <li>
               <Link href="#">Payments</Link>
-            </li>
-            <li>
-              <Link href="#">Shipping</Link>
             </li>
             <li>
               <Link href="#">Contact Us</Link>

@@ -11,7 +11,7 @@ const GameItemCard = ({ game }: { game: GameItem }) => {
       className="relative p-1 pb-2 rounded-xl flex flex-col gap-y-1 items-start group no-underline"
     >
       <Image
-        className="w-full rounded-lg shadow opacity-100"
+        className="w-full rounded-xl shadow opacity-100"
         alt={`Poster Image for ${game.title}`}
         src={game.posterImage}
         removeWrapper={true}

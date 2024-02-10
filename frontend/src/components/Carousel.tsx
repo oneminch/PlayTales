@@ -17,7 +17,7 @@ const Carousel = ({ children }: { children: React.ReactNode }) => {
       loop={true}
       navigation={true}
       modules={[Pagination, Navigation]}
-      className="w-full h-full rounded-lg"
+      className="w-full h-full rounded-xl"
     >
       {children}
     </Swiper>

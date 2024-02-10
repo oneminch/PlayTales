@@ -32,7 +32,7 @@ const Hero = ({
 
   return (
     <section
-      className={`flex flex-col items-center justify-center rounded-lg space-y-8 w-full ${className}`}
+      className={`flex flex-col items-center justify-center rounded-xl space-y-8 w-full ${className}`}
     >
       <div className="relative w-20 h-28 sm:w-24 sm:h-32">
         {posters.map((poster) => (
@@ -51,7 +51,7 @@ const Hero = ({
       </h2>
       <Link
         href={actionLink.url}
-        className="px-4 py-1.5 rounded-lg font-medium bg-gray-900 text-gray-50"
+        className="px-4 py-1.5 rounded-xl font-medium bg-gray-900 text-gray-50"
       >
         {actionLink.label}
       </Link>
