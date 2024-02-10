@@ -1,4 +1,4 @@
-interface GameTitle {
+interface GameItem {
   id: string;
   title: string;
   posterImage: string;
@@ -12,4 +12,9 @@ interface FilterInterface {
   options: { label: string; value: string }[];
 }
 
-export type { FilterInterface, GameTitle };
+interface CartPriceInterface {
+  price: number;
+  discount: number;
+}
+
+export type { CartPriceInterface, FilterInterface, GameItem };
