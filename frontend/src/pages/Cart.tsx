@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <div className="space-y-4 pt-6 pb-4">
       <h1 className="text-3xl font-bold">Your Cart</h1>
-      <article className="w-full grid grid-cols-3 gap-x-4 grid-rows-[auto_1fr] grid-flow-dense rounded-lg pb-8">
+      <article className="w-full grid grid-cols-3 gap-x-4 grid-rows-[auto_1fr] grid-flow-dense pb-8">
         <ul className="flex flex-col row-span-1 col-span-2 bg-white border border-gray-200 rounded-xl py-2 px-8">
           {games!.map((game) => (
             <li
@@ -90,7 +90,7 @@ const Cart = () => {
             </CardBody>
             <CardFooter className="px-0">
               <Button
-                className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-lg"
+                className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-xl"
                 endContent={
                   <Icon className="text-lg" icon="heroicons:shopping-cart" />
                 }

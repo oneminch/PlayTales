@@ -5,7 +5,7 @@ const ToS = () => {
     <div className="space-y-4 pt-6 pb-4 text-center">
       <h1 className="text-2xl font-bold">Terms of Service</h1>
 
-      <article className="w-full md:w-2/3 mx-auto rounded-lg pb-8">
+      <article className="w-full md:w-2/3 mx-auto pb-8">
         <p>
           By signing up or creating an account, you understand that PlayTales is
           not a real service and therefore shouldn't even have a Terms of

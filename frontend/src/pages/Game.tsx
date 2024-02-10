@@ -31,7 +31,7 @@ const Game = () => {
   return (
     <article className="flex flex-col gap-y-4 my-8">
       <div className="flex flex-col-reverse md:flex-row items-start gap-x-0 gap-y-4 md:gap-y-0 md:gap-x-4">
-        <section className="w-full md:w-2/3 flex flex-col gap-y-4 border-4 border-gray-300 bg-white/25 rounded-xl">
+        <section className="w-full md:w-2/3 flex flex-col gap-y-4 border border-gray-300 bg-white/25 rounded-xl">
           <Carousel>
             {currentGame!.screenshots.map((screenshot) => (
               <SwiperSlide
@@ -85,7 +85,7 @@ const Game = () => {
           </div>
           <div className="space-y-4">
             <Button
-              className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-lg"
+              className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-xl"
               endContent={
                 <Icon className="text-lg" icon="heroicons:shopping-cart" />
               }
@@ -93,7 +93,7 @@ const Game = () => {
               Add to Cart
             </Button>
             <Button
-              className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-200 text-gray-900 py-1 rounded-lg"
+              className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-200 text-gray-900 py-1 rounded-xl"
               endContent={<Icon className="text-lg" icon="heroicons:heart" />}
             >
               Add to Wishlist
