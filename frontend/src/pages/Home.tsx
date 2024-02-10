@@ -5,9 +5,12 @@ import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
 import { GameItem } from "@/types";
 import Banner from "@/components/partials/Banner";
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 const Home = () => {
   const [games, setGames] = useState<GameItem[]>([]);
+  const { params: currentPage, setParams: setCurrentPage } =
+    useCustomSearchParams("p", [1]);
 
   useEffect(() => {
     const getData = async () => {
@@ -18,6 +21,10 @@ const Home = () => {
     };
     getData();
   }, []);
+
+  const paginate = (page: number) => {
+    setCurrentPage(new Set([page]));
+  };
 
   return (
     <>
@@ -51,7 +58,7 @@ const Home = () => {
             ]}
           />
         </div>
-        <article className="w-full min-h-96 rounded-lg">
+        <article className="w-full min-h-96">
           {!games && <p>Loading...</p>}
           <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
             {games!.map((game) => (
@@ -62,9 +69,12 @@ const Home = () => {
           </ul>
         </article>
         <Pagination
-          className="mx-auto my-6"
+          isCompact
+          showControls
           total={Math.ceil(games!.length / 8)}
-          initialPage={1}
+          page={Array.from(currentPage)[0] as number}
+          onChange={paginate}
+          className="mx-auto my-6"
         />
       </div>
       <Banner

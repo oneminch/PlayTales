@@ -1,49 +1,11 @@
 import { Select, SelectItem } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { FilterInterface } from "@/types";
 import { Icon } from "@iconify/react";
-
-const urlSearchParamsToObject = (searchParams: URLSearchParams) => {
-  const result: Record<string, string> = {};
-
-  searchParams.sort();
-  for (const [key, value] of searchParams.entries()) {
-    result[key] = value;
-  }
-  return result;
-};
+import useCustomSearchParams from "@/hooks/useCustomSearchParams";
 
 const Filter = ({ label, options }: FilterInterface) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const [selectedValue, setSelectedValue] = useState(() => {
-    const activeParam = searchParams.get(label.toLowerCase());
-    return activeParam ? new Set([activeParam]) : new Set([]);
-  });
-
-  useEffect(() => {
-    const filterLabel = label.toLowerCase();
-
-    if (selectedValue.size > 0) {
-      const currValue = Array.from(selectedValue)[0];
-
-      setSearchParams((currentParams) => {
-        currentParams.set(filterLabel, currValue);
-        currentParams.sort();
-        return urlSearchParamsToObject(currentParams);
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedValue]);
-
-  useEffect(() => {
-    const filterLabel = label.toLowerCase();
-    if (!searchParams.get(filterLabel)) {
-      setSelectedValue(new Set([]));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+  const { params: selectedValue, setParams: setSelectedValue } =
+    useCustomSearchParams(label.toLowerCase());
 
   return (
     <Select
