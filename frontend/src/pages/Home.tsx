@@ -1,13 +1,13 @@
 import { Pagination } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import GameTitleCard from "@/components/GameItemCard";
+import GameItemCard from "@/components/GameItemCard";
 import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
-import { GameTitle } from "@/types";
+import { GameItem } from "@/types";
 import Banner from "@/components/partials/Banner";
 
 const Home = () => {
-  const [games, setGames] = useState<GameTitle[]>([]);
+  const [games, setGames] = useState<GameItem[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -56,7 +56,7 @@ const Home = () => {
           <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
             {games!.map((game) => (
               <li className="w-full mb-2" key={game.title}>
-                <GameTitleCard game={game} />
+                <GameItemCard game={game} />
               </li>
             ))}
           </ul>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Filter from "@/components/partials/Filter";
-import GameTitleCard from "@/components/GameItemCard";
-import { GameTitle } from "@/types";
+import GameItemCard from "@/components/GameItemCard";
+import { GameItem } from "@/types";
 
 const Wishlist = () => {
-  const [games, setGames] = useState<GameTitle[]>([]);
+  const [games, setGames] = useState<GameItem[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -32,7 +32,7 @@ const Wishlist = () => {
         <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
           {games!.map((game) => (
             <li className="mx-auto mb-2" key={game.title}>
-              <GameTitleCard game={game} />
+              <GameItemCard game={game} />
             </li>
           ))}
         </ul>

@@ -3,13 +3,13 @@ import { Button, Chip, CircularProgress, Image } from "@nextui-org/react";
 import { SwiperSlide } from "swiper/react";
 import { Icon } from "@iconify/react";
 import Carousel from "@/components/Carousel";
-import type { GameTitle } from "@/types";
+import type { GameItem } from "@/types";
 import { useEffect, useState } from "react";
 import GamePriceText from "@/components/GamePriceText";
 
 const Game = () => {
   const { gameId } = useParams();
-  const [currentGame, setCurrentGame] = useState<GameTitle>();
+  const [currentGame, setCurrentGame] = useState<GameItem>();
 
   useEffect(() => {
     const getData = async () => {
@@ -17,8 +17,8 @@ const Game = () => {
       const jsonData = await data.json();
 
       const currGame = jsonData.find(
-        (game: GameTitle) => game.id === gameId
-      ) as GameTitle;
+        (game: GameItem) => game.id === gameId
+      ) as GameItem;
       setCurrentGame(currGame);
     };
     getData();
