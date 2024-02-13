@@ -1,7 +1,7 @@
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
-import { Link } from "@nextui-org/react";
 import Hero from "@/components/partials/Hero";
+import SignUpForm from "@/components/forms/SignUpForm";
 
 const SignUp = () => {
   return (
@@ -9,59 +9,7 @@ const SignUp = () => {
       <article className="w-full lg:w-4/5 mx-auto flex flex-col md:flex-row items-center justify-center gap-y-4 lg:gap-y-0 lg:gap-x-4">
         <section className="w-full md:w-1/2 space-y-4 mx-auto py-6 px-10 md:py-0 border-b border-b-gray-200/50 md:border-b-0 md:border-r md:border-r-gray-200/50">
           <h1 className="text-3xl font-bold">Sign Up</h1>
-          <form className="w-full py-6 space-y-10">
-            <div className="flex gap-x-2">
-              <Input
-                isRequired
-                labelPlacement="outside"
-                type="text"
-                label="First Name"
-                placeholder="Jane"
-              />
-              <Input
-                isRequired
-                labelPlacement="outside"
-                type="text"
-                label="Last Name"
-                placeholder="Doe"
-              />
-            </div>
-            <Input
-              isRequired
-              labelPlacement="outside"
-              type="email"
-              label="Email"
-              placeholder="hello@example.com"
-            />
-            <Input
-              isRequired
-              labelPlacement="outside"
-              type="password"
-              label="Password"
-              placeholder="Create your password"
-            />
-            <Input
-              isRequired
-              labelPlacement="outside"
-              type="password"
-              label="Confirm Password"
-              placeholder="Confirm your password"
-            />
-            <div className="space-y-4">
-              <p className="text-xs text-gray-500">
-                By signing up or creating an account, you agree to our{" "}
-                <Link className="text-xs" href="/terms-of-service">
-                  Privacy Policy
-                </Link>{" "}
-                and{" "}
-                <Link className="text-xs" href="/terms-of-service">
-                  Terms of Service
-                </Link>
-                .
-              </p>
-              <Button>Sign Up</Button>
-            </div>
-          </form>
+          <SignUpForm />
           <p>Or sign up with</p>
           <div className="flex items-center gap-2 *:w-full">
             <Button
