@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { Button, Chip, Image } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import type { GameItem } from "@/types";
-import GamePriceText from "./GamePriceText";
+import GamePriceText from "../GamePriceText";
 
 const GameItemAltCard = ({ game }: { game: GameItem }) => {
   return (
@@ -42,14 +42,24 @@ const GameItemAltCard = ({ game }: { game: GameItem }) => {
         </div>
         <GamePriceText price={game.price} discount={game.discount} />
       </div>
-      <Button
-        isIconOnly
-        className="flex items-center justify-center text-lg bg-white border border-gray-200 rounded-full w-8 h-8 ml-auto text-gray-700"
-        aria-label="Add to Wishlist"
-        size="sm"
-      >
-        <Icon icon="heroicons:trash-20-solid" />
-      </Button>
+      <div className="flex gap-x-4 ml-auto">
+        <Button
+          isIconOnly
+          className="flex items-center justify-center text-lg bg-white border border-gray-200 rounded-full w-8 h-8 text-gray-700"
+          aria-label="Add to Wishlist"
+          size="sm"
+        >
+          <Icon icon="heroicons:heart" />
+        </Button>
+        <Button
+          isIconOnly
+          className="flex items-center justify-center text-lg bg-white border border-gray-200 rounded-full w-8 h-8 text-gray-700"
+          aria-label="Remove from Cart"
+          size="sm"
+        >
+          <Icon icon="heroicons:trash-20-solid" />
+        </Button>
+      </div>
     </div>
   );
 };

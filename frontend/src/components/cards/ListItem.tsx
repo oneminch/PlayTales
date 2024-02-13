@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { Button, Image } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import type { GameItem } from "@/types";
-import GamePriceText from "./GamePriceText";
+import GamePriceText from "../GamePriceText";
 
 const GameItemCard = ({ game }: { game: GameItem }) => {
   return (
