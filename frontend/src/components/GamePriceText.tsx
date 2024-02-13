@@ -1,12 +1,14 @@
 const GamePriceText = ({
   price,
-  discount
+  discount,
+  className
 }: {
   price: number;
   discount: number;
+  className: string;
 }) => {
   return (
-    <p className="w-full text-sm space-x-2">
+    <p className={`w-full text-sm space-x-2 ${className}`}>
       {discount > 0 && (
         <>
           <span className="bg-amber-400 text-gray-800 rounded-md text-xs py-0.5 px-1">
@@ -25,6 +27,10 @@ const GamePriceText = ({
       )}
     </p>
   );
+};
+
+GamePriceText.defaultProps = {
+  className: ""
 };
 
 export default GamePriceText;
