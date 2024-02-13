@@ -1,5 +1,6 @@
-import About from "@/pages/About.tsx";
+import Account from "@/pages/Account";
 import Cart from "@/pages/Cart.tsx";
+import Checkout from "@/pages/Checkout";
 import Home from "@/pages/Home.tsx";
 import LogIn from "@/pages/LogIn.tsx";
 import NotFound from "@/pages/NotFound.tsx";
@@ -18,12 +19,16 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "about",
-        element: <About />
+        path: "account",
+        element: <Account />
       },
       {
         path: "cart",
         element: <Cart />
+      },
+      {
+        path: "checkout",
+        element: <Checkout />
       },
       {
         path: "",
