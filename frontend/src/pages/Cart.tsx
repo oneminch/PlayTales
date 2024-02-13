@@ -1,4 +1,4 @@
-import GameItemAltCard from "@/components/cards/CartItem";
+import CartItem from "@/components/cards/CartItem";
 import { GameItem, CartPriceInterface } from "@/types";
 import { useEffect, useState } from "react";
 import {
@@ -47,7 +47,7 @@ const Cart = () => {
                 className="h-36 border-b border-gray-200/75 last:border-none"
                 key={game.title}
               >
-                <GameItemAltCard game={game} />
+                <CartItem game={game} />
               </li>
             ))}
           </ul>

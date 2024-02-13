@@ -1,5 +1,5 @@
 import { Button, Pagination } from "@nextui-org/react";
-import GameItemCard from "@/components/cards/ListItem";
+import ListItem from "@/components/cards/ListItem";
 import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
 import { GameItem } from "@/types";
@@ -64,7 +64,7 @@ const Home = () => {
             <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
               {games.map((game: GameItem) => (
                 <li className="w-full mb-2" key={game.title}>
-                  <GameItemCard game={game} />
+                  <ListItem game={game} />
                 </li>
               ))}
             </ul>

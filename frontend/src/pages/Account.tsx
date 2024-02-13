@@ -1,4 +1,4 @@
-import PurchaseItemCard from "@/components/cards/PurchaseItem";
+import PurchaseItem from "@/components/cards/PurchaseItem";
 import { GameItem } from "@/types";
 
 const games = [
@@ -43,7 +43,7 @@ const Account = () => {
                   className="h-36 border-b border-gray-200/75 last:border-none"
                   key={game.title}
                 >
-                  <PurchaseItemCard game={game} />
+                  <PurchaseItem game={game} />
                 </li>
               ))}
             </ul>

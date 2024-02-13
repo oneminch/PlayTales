@@ -3,7 +3,7 @@ import { Link } from "@nextui-org/react";
 import type { GameItem } from "@/types";
 import GamePriceText from "../GamePriceText";
 
-const GameSearchItem = ({ game }: { game: GameItem }) => {
+const SearchItem = ({ game }: { game: GameItem }) => {
   return (
     <div className="h-full rounded-xl flex gap-x-2 items-start py-1">
       <Image
@@ -29,4 +29,4 @@ const GameSearchItem = ({ game }: { game: GameItem }) => {
   );
 };
 
-export default GameSearchItem;
+export default SearchItem;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Filter from "@/components/partials/Filter";
-import GameItemCard from "@/components/GameItemCard";
+import ListItem from "@/components/cards/ListItem";
 import { GameItem } from "@/types";
 
 const Wishlist = () => {
@@ -22,17 +22,17 @@ const Wishlist = () => {
       <Filter
         label="Sort"
         options={[
-          { label: "Title - Asc", value: "title-asc" },
-          { label: "Title - Desc", value: "title-desc" },
-          { label: "Price - Asc", value: "price-asc" },
-          { label: "Price - Desc", value: "price-desc" }
+          { label: "Title: A-Z", value: "title-asc" },
+          { label: "Title: Z-A", value: "title-desc" },
+          { label: "Price: Low to High", value: "price-asc" },
+          { label: "Price: High to Low", value: "price-desc" }
         ]}
       />
-      <article className="w-full min-h-96 rounded-lg pb-8">
+      <article className="w-full min-h-96 pb-8">
         <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
           {games!.map((game) => (
             <li className="mx-auto mb-2" key={game.title}>
-              <GameItemCard game={game} />
+              <ListItem game={game} />
             </li>
           ))}
         </ul>

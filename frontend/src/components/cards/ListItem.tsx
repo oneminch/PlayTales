@@ -4,7 +4,7 @@ import { Link } from "@nextui-org/react";
 import type { GameItem } from "@/types";
 import GamePriceText from "../GamePriceText";
 
-const GameItemCard = ({ game }: { game: GameItem }) => {
+const ListItem = ({ game }: { game: GameItem }) => {
   return (
     <Link
       href={`/games/${game.id}`}
@@ -30,4 +30,4 @@ const GameItemCard = ({ game }: { game: GameItem }) => {
   );
 };
 
-export default GameItemCard;
+export default ListItem;

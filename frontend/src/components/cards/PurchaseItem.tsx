@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { Button, Image } from "@nextui-org/react";
 import type { GameItem } from "@/types";
 
-const PurchaseItemCard = ({ game }: { game: GameItem }) => {
+const PurchaseItem = ({ game }: { game: GameItem }) => {
   return (
     <div className="h-full rounded-xl flex gap-x-6 items-start py-4">
       <Image
@@ -39,4 +39,4 @@ const PurchaseItemCard = ({ game }: { game: GameItem }) => {
   );
 };
 
-export default PurchaseItemCard;
+export default PurchaseItem;

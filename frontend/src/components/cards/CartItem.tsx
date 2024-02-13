@@ -4,7 +4,7 @@ import { Link } from "@nextui-org/react";
 import type { GameItem } from "@/types";
 import GamePriceText from "../GamePriceText";
 
-const GameItemAltCard = ({ game }: { game: GameItem }) => {
+const CartItem = ({ game }: { game: GameItem }) => {
   return (
     <div className="h-full rounded-xl flex gap-x-6 items-start py-4">
       <Image
@@ -64,4 +64,4 @@ const GameItemAltCard = ({ game }: { game: GameItem }) => {
   );
 };
 
-export default GameItemAltCard;
+export default CartItem;
