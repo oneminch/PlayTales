@@ -3,7 +3,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "../index.css";
+import "../../index.css";
 
 const Carousel = ({ children }: { children: React.ReactNode }) => {
   return (
