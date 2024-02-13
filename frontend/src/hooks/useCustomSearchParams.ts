@@ -20,6 +20,10 @@ const useCustomSearchParams = (label: string, defaultValue: any = []) => {
     return activeParam ? new Set([activeParam]) : new Set(defaultValue);
   });
 
+  const clearParams = () => {
+    setParams(new Set(defaultValue));
+  };
+
   useEffect(() => {
     const currentLabel = label.toLowerCase();
 
@@ -38,12 +42,12 @@ const useCustomSearchParams = (label: string, defaultValue: any = []) => {
   useEffect(() => {
     const currentLabel = label.toLowerCase();
     if (!searchParams.get(currentLabel)) {
-      setParams(new Set(defaultValue));
+      clearParams();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  return { params, setParams };
+  return { params, setParams, clearParams };
 };
 
 export default useCustomSearchParams;
