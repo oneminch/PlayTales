@@ -30,10 +30,20 @@ export default {
     nextui({
       themes: {
         dark: {
-          colors: { focus: "#fbbf24" }
+          colors: {
+            focus: "#fbbf24",
+            primary: {
+              DEFAULT: "#4B5563"
+            }
+          }
         },
         light: {
-          colors: { focus: "#fbbf24" }
+          colors: {
+            focus: "#fbbf24",
+            primary: {
+              DEFAULT: "#4B5563"
+            }
+          }
         }
       },
       layout: {
