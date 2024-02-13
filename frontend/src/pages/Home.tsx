@@ -1,26 +1,24 @@
-import { Pagination } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import GameItemCard from "@/components/GameItemCard";
+import { Button, Pagination } from "@nextui-org/react";
+import GameItemCard from "@/components/cards/ListItem";
 import Filter from "@/components/partials/Filter";
 import Hero from "@/components/partials/Hero";
 import { GameItem } from "@/types";
 import Banner from "@/components/partials/Banner";
 import useCustomSearchParams from "@/hooks/useCustomSearchParams";
+import useFetch from "@/hooks/useFetch";
 
 const Home = () => {
-  const [games, setGames] = useState<GameItem[]>([]);
-  const { params: currentPage, setParams: setCurrentPage } =
-    useCustomSearchParams("p", [1]);
+  const {
+    params: currentPage,
+    setParams: setCurrentPage,
+    clearParams: resetFilters
+  } = useCustomSearchParams("p", [1]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetch("/data.json");
-      const jsonData = await data.json();
-
-      setGames(jsonData);
-    };
-    getData();
-  }, []);
+  const {
+    data: games,
+    loading: isLoading,
+    error: isError
+  } = useFetch("/data.json", []);
 
   const paginate = (page: number) => {
     setCurrentPage(new Set([page]));
@@ -34,6 +32,7 @@ const Home = () => {
         actionLink={{ label: "Browse", url: "#browse" }}
       />
       <div className="flex flex-col items-start gap-y-4" id="browse">
+        <Button onPress={resetFilters}>Reset</Button>
         <div className="flex flex-col sm:flex-row items-center w-full gap-y-4 sm:gap-y-0 sm:gap-x-4">
           <Filter
             label="Genre"
@@ -59,14 +58,17 @@ const Home = () => {
           />
         </div>
         <article className="w-full min-h-96">
-          {!games && <p>Loading...</p>}
-          <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
-            {games!.map((game) => (
-              <li className="w-full mb-2" key={game.title}>
-                <GameItemCard game={game} />
-              </li>
-            ))}
-          </ul>
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>An Error Occured...</p>}
+          {games && (
+            <ul className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+              {games.map((game: GameItem) => (
+                <li className="w-full mb-2" key={game.title}>
+                  <GameItemCard game={game} />
+                </li>
+              ))}
+            </ul>
+          )}
         </article>
         <Pagination
           isCompact

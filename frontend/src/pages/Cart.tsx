@@ -1,34 +1,28 @@
-import GameItemAltCard from "@/components/GameItemAltCard";
+import GameItemAltCard from "@/components/cards/CartItem";
 import { GameItem, CartPriceInterface } from "@/types";
 import { useEffect, useState } from "react";
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  Divider
+  Divider,
+  Link
 } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
+import useFetch from "@/hooks/useFetch";
 
 const Cart = () => {
-  const [games, setGames] = useState<GameItem[]>([]);
   const [cartPrice, setCartPrice] = useState<CartPriceInterface>();
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetch("/data.json");
-      const jsonData = await data.json();
-
-      const someData: GameItem[] = jsonData.slice(0, 3);
-      setGames(someData);
-    };
-    getData();
-  }, []);
+  const {
+    data: games,
+    loading: isLoading,
+    error: isError
+  } = useFetch("/data.json", []);
 
   useEffect(() => {
     setCartPrice(
-      games.reduce(
+      games.slice(0, 3).reduce(
         (acc: CartPriceInterface, item: GameItem) => {
           acc.price += item.price;
           acc.discount += item.discount;
@@ -44,17 +38,21 @@ const Cart = () => {
     <div className="space-y-4 pt-6 pb-4">
       <h1 className="text-3xl font-bold">Your Cart</h1>
       <article className="w-full grid grid-cols-3 gap-x-4 grid-rows-[auto_1fr] grid-flow-dense pb-8">
-        <ul className="flex flex-col row-span-1 col-span-2 bg-white border border-gray-200 rounded-xl py-2 px-8">
-          {games!.map((game) => (
-            <li
-              className="h-36 border-b border-gray-200/75 last:border-none"
-              key={game.title}
-            >
-              <GameItemAltCard game={game} />
-            </li>
-          ))}
-        </ul>
-        <aside className="space-y-4 row-span-3 *:bg-white *:border *:border-gray-200 *:rounded-xl *:py-2 *:px-6">
+        {isLoading && <p>Loading...</p>}
+        {isError && <p>An Error Occured...</p>}
+        {games && (
+          <ul className="flex flex-col row-span-1 col-span-2 bg-white border border-gray-200 rounded-xl py-2 px-8">
+            {games.slice(0, 3).map((game: GameItem) => (
+              <li
+                className="h-36 border-b border-gray-200/75 last:border-none"
+                key={game.title}
+              >
+                <GameItemAltCard game={game} />
+              </li>
+            ))}
+          </ul>
+        )}
+        <aside className="sticky top-4 space-y-4 row-span-3 *:bg-white *:border *:border-gray-200 *:rounded-xl *:py-2 *:px-6">
           <Card className="shadow-none">
             <CardHeader className="px-0">
               <h3 className="text-xl font-semibold">Cart Summary</h3>
@@ -89,14 +87,13 @@ const Cart = () => {
               </p>
             </CardBody>
             <CardFooter className="px-0">
-              <Button
-                className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-xl"
-                endContent={
-                  <Icon className="text-lg" icon="heroicons:shopping-cart" />
-                }
+              <Link
+                href="/checkout"
+                className="w-full flex items-center justify-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-xl"
               >
                 Checkout
-              </Button>
+                <Icon className="text-lg" icon="heroicons:shopping-cart" />
+              </Link>
             </CardFooter>
           </Card>
           <Card className="shadow-none">
