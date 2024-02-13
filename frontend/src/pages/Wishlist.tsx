@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Filter from "@/components/partials/Filter";
+import Filter from "@/components/Filter";
 import ListItem from "@/components/cards/ListItem";
 import { GameItem } from "@/types";
 
