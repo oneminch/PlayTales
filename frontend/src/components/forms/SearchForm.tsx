@@ -41,11 +41,19 @@ const SearchForm = () => {
       <div
         className={`w-full rounded-xl z-50 absolute top-full mt-1 shadow-lg left-0 bg-white border border-gray-200 transition-all duration-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible translate-y-2 opacity-0 invisible`}
       >
-        <Listbox shouldFocusWrap={true} aria-label="Search Suggestions">
+        <Listbox
+          shouldFocusWrap={true}
+          aria-label="Search Suggestions"
+          className="p-2"
+        >
           <ListboxSection showDivider>
             {games &&
               games.slice(0, 3).map((game: GameItem) => (
-                <ListboxItem key={game.id} className="*:h-16" href={game.id}>
+                <ListboxItem
+                  key={game.id}
+                  className="*:h-16 rounded-lg"
+                  href={game.id}
+                >
                   <SearchItem game={game} />
                 </ListboxItem>
               ))}
