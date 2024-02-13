@@ -8,11 +8,9 @@ import {
   ListboxItem,
   ListboxSection
 } from "@nextui-org/react";
-import { useState } from "react";
-import GameSearchItem from "../cards/SearchItem";
+import SearchItem from "../cards/SearchItem";
 
 const SearchForm = () => {
-  const [suggesting, setSuggesting] = useState(false);
   const { data: games } = useFetch("/data.json", []);
 
   return (
@@ -48,7 +46,7 @@ const SearchForm = () => {
             {games &&
               games.slice(0, 3).map((game: GameItem) => (
                 <ListboxItem key={game.id} className="*:h-16" href={game.id}>
-                  <GameSearchItem game={game} />
+                  <SearchItem game={game} />
                 </ListboxItem>
               ))}
           </ListboxSection>
