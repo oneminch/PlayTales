@@ -13,6 +13,19 @@
     ]
   },
   {
+    "id": "marvels-gotg",
+    "title": "Marvel's Guardians of the Galaxy",
+    "posterImage": "/images/marvels-gotg.png",
+    "discount": 10,
+    "price": 59.99,
+    "screenshots": [
+      "/images/marvels-gotg-1.jpg",
+      "/images/marvels-gotg-2.jpg",
+      "/images/marvels-gotg-3.jpg",
+      "/images/marvels-gotg-4.jpg"
+    ]
+  },
+  {
     "id": "cyberpunk-2077",
     "title": "Cyberpunk 2077",
     "posterImage": "/images/cyberpunk-2077.png",
@@ -23,17 +36,6 @@
       "/images/cyberpunk-2077-2.jpg",
       "/images/cyberpunk-2077-3.jpg",
       "/images/cyberpunk-2077-4.jpg"
-    ]
-  },
-  {
-    "id": "shadow-of-the-tomb-raider",
-    "title": "Shadow of the Tomb Raider",
-    "posterImage": "/images/shadow-of-the-tomb-raider.png",
-    "discount": 25,
-    "price": 59.99,
-    "screenshots": [
-      "/images/shadow-of-the-tomb-raider-1.jpg",
-      "/images/shadow-of-the-tomb-raider-2.jpg"
     ]
   },
   {
@@ -61,6 +63,17 @@
       "/images/a-plague-tale-requiem-2.jpg",
       "/images/a-plague-tale-requiem-3.jpg",
       "/images/a-plague-tale-requiem-4.jpg"
+    ]
+  },
+  {
+    "id": "shadow-of-the-tomb-raider",
+    "title": "Shadow of the Tomb Raider",
+    "posterImage": "/images/shadow-of-the-tomb-raider.png",
+    "discount": 25,
+    "price": 59.99,
+    "screenshots": [
+      "/images/shadow-of-the-tomb-raider-1.jpg",
+      "/images/shadow-of-the-tomb-raider-2.jpg"
     ]
   },
   {
