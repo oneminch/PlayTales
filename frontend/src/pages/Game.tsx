@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Button, Chip, CircularProgress, Image } from "@nextui-org/react";
 import { SwiperSlide } from "swiper/react";
 import { Icon } from "@iconify/react";
-import Carousel from "@/components/Carousel";
+import Carousel from "@/components/partials/Carousel";
 import type { GameItem } from "@/types";
 import { useEffect, useState } from "react";
 import GamePriceText from "@/components/GamePriceText";
