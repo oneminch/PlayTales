@@ -28,7 +28,7 @@ const useCustomSearchParams = (label: string, defaultValue: any = []) => {
     const currentLabel = label.toLowerCase();
 
     if (params.size > 0) {
-      const currValue = Array.from(params)[0];
+      const currValue = params.values().next().value;
 
       setSearchParams((currentParams) => {
         currentParams.set(currentLabel, currValue.toString());
@@ -36,7 +36,6 @@ const useCustomSearchParams = (label: string, defaultValue: any = []) => {
         return urlSearchParamsToObject(currentParams);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   useEffect(() => {
@@ -44,7 +43,6 @@ const useCustomSearchParams = (label: string, defaultValue: any = []) => {
     if (!searchParams.get(currentLabel)) {
       clearParams();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   return { params, setParams, clearParams };
