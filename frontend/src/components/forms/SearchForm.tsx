@@ -51,6 +51,7 @@ const SearchForm = () => {
               games.slice(0, 3).map((game: GameItem) => (
                 <ListboxItem
                   key={game.id}
+                  textValue={game.title}
                   className="*:h-16 rounded-lg"
                   href={game.id}
                 >
@@ -59,7 +60,11 @@ const SearchForm = () => {
               ))}
           </ListboxSection>
           <ListboxSection>
-            <ListboxItem className="py-0" key="show-all">
+            <ListboxItem
+              className="py-0"
+              key="show-all"
+              textValue="Show All Results"
+            >
               <Button className="w-full">Show All Results</Button>
             </ListboxItem>
           </ListboxSection>
