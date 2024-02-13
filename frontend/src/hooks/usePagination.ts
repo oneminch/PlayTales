@@ -6,7 +6,7 @@ const usePagination = (lastPage: number) => {
   const prevPage = () => {
     if (page.size > 0) {
       setPage((prevPage) => {
-        const currValue = prevPage.values().next().value;
+        const currValue = parseInt(prevPage.values().next().value);
         if (currValue >= 2) {
           return new Set([currValue - 1]);
         } else {
@@ -18,16 +18,10 @@ const usePagination = (lastPage: number) => {
     }
   };
 
-  const goToPage = (page: number) => {
-    if (page >= 2 && page < lastPage) {
-      setPage(new Set([page]));
-    }
-  };
-
   const nextPage = () => {
     if (page.size > 0) {
       setPage((prevPage) => {
-        const currValue = prevPage.values().next().value;
+        const currValue = parseInt(prevPage.values().next().value);
         if (currValue < lastPage) {
           return new Set([currValue + 1]);
         } else {
@@ -39,7 +33,7 @@ const usePagination = (lastPage: number) => {
     }
   };
 
-  return { page, prevPage, goToPage, nextPage };
+  return { page, prevPage, nextPage };
 };
 
 export default usePagination;
