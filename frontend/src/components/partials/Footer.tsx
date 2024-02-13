@@ -5,8 +5,8 @@ import IconLink from "../IconLink";
 const Footer = () => {
   return (
     <footer className="pt-8 pb-4 text-gray-500">
-      <div className="flex items-start justify-between mb-8">
-        <section className="space-y-2">
+      <div className="relative grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-6 xs:gap-x-4 items-start justify-between mb-8">
+        <section className="space-y-2 col-span-full md:col-span-1">
           <Icon
             className="text-4xl"
             icon="material-symbols:stadia-controller"
@@ -15,20 +15,26 @@ const Footer = () => {
           <ul className="flex items-center space-x-2">
             <li>
               <IconLink
+                label="Twitter Profile"
+                className="rounded-full"
                 path="https://twitter.com/oneminch"
-                icon="logos:twitter"
+                icon="simple-icons:twitter"
               />
             </li>
             <li>
               <IconLink
+                label="GitHub Profile"
+                className="rounded-full"
                 path="https://github.com/oneminch"
-                icon="logos:github-icon"
+                icon="simple-icons:github"
               />
             </li>
             <li>
               <IconLink
+                label="LinkedIn Profile"
+                className="rounded-full"
                 path="https://linkedin.com/in/oneminch"
-                icon="logos:linkedin-icon"
+                icon="simple-icons:linkedin"
               />
             </li>
           </ul>
@@ -78,8 +84,12 @@ const Footer = () => {
             </li>
           </ul>
         </section>
-        <section>
-          <IconLink path="#" icon="heroicons:arrow-up-20-solid" />
+        <section className="absolute top-0 right-0">
+          <IconLink
+            label="Scroll to the Top"
+            path="#"
+            icon="heroicons:arrow-up-20-solid"
+          />
         </section>
       </div>
       <section className="text-sm text-gray-400">

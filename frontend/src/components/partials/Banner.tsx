@@ -31,7 +31,11 @@ const Hero = ({
       </div>
       <div className="absolute z-20 bottom-1/2 md:bottom-0 md:right-1/2 w-full md:w-1/3 h-1/2 md:h-full bg-gradient-to-t md:bg-gradient-to-l from-white/100 via-white/75 via-25% to-white/0"></div>
       <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col items-center justify-center gap-y-4">
-        <IconLink path="/" icon="material-symbols:stadia-controller" />
+        <IconLink
+          label="Homepage"
+          path="/"
+          icon="material-symbols:stadia-controller"
+        />
         <h2 className="text-lg lg:text-xl font-semibold text-center text-gray-600">
           {textLabel}
         </h2>
