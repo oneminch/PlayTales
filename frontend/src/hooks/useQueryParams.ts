@@ -25,6 +25,15 @@ const useQueryParams = (label: string) => {
         );
         return sortObjectByKey(newParams);
       });
+    } else {
+      setSearchParams((currentParams) => {
+        currentParams.delete(label.toLowerCase());
+        const newParams = Object.assign(
+          {},
+          searchParamsToObject(currentParams)
+        );
+        return sortObjectByKey(newParams);
+      });
     }
   };
 
