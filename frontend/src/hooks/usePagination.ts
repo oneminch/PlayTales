@@ -1,6 +1,6 @@
 import useQueryParams from "./useQueryParams";
 
-const usePagination = (lastPage: number) => {
+const usePagination = (lastPage: number = 1) => {
   const { params: page, setParams: setPage } = useQueryParams("page");
 
   const prevPage = () => {
@@ -19,6 +19,12 @@ const usePagination = (lastPage: number) => {
       });
     } else {
       setPage(null);
+    }
+  };
+
+  const goToPage = (page: number) => {
+    if (page > 0 && page <= lastPage) {
+      setPage(page.toString());
     }
   };
 
@@ -41,7 +47,7 @@ const usePagination = (lastPage: number) => {
     }
   };
 
-  return { page, prevPage, nextPage };
+  return { page, prevPage, nextPage, goToPage };
 };
 
 export default usePagination;
