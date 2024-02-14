@@ -3,7 +3,6 @@ import Filter from "@/components/Filter";
 import { GameItem } from "@/types";
 import useFetch from "@/hooks/useFetch";
 import Pagination from "@/components/partials/Pagination";
-import { Link } from "@nextui-org/react";
 
 const ItemList = () => {
   const {
@@ -14,7 +13,6 @@ const ItemList = () => {
 
   return (
     <div className="flex flex-col items-start gap-y-4" id="browse">
-      <Link href="/">Reset</Link>
       <div className="flex flex-col sm:flex-row items-center w-full gap-y-4 sm:gap-y-0 sm:gap-x-4">
         <Filter
           label="Genre"
