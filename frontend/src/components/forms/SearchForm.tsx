@@ -9,13 +9,33 @@ import {
   ListboxSection
 } from "@nextui-org/react";
 import SearchItem from "../cards/SearchItem";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SearchForm = () => {
   const { data: games } = useFetch("/data.json", []);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+    // Handle suggestions here
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (searchQuery && searchQuery.trim().length > 0) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <section className="w-full relative group">
-      <form className="w-full h-10 flex items-center text-lg">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full h-10 flex items-center text-lg"
+      >
         <Input
           type="text"
           size="sm"
@@ -36,6 +56,8 @@ const SearchForm = () => {
               icon="heroicons:magnifying-glass-20-solid"
             />
           }
+          value={searchQuery}
+          onChange={handleInput}
         />
       </form>
       <div
