@@ -1,35 +1,43 @@
-import useCustomSearchParams from "./useCustomSearchParams";
+import useQueryParams from "./useQueryParams";
 
 const usePagination = (lastPage: number) => {
-  const { params: page, setParams: setPage } = useCustomSearchParams("page");
+  const { params: page, setParams: setPage } = useQueryParams("page");
 
   const prevPage = () => {
-    if (page.size > 0) {
-      setPage((prevPage) => {
-        const currValue = parseInt(prevPage.values().next().value);
-        if (currValue >= 2) {
-          return new Set([currValue - 1]);
-        } else {
-          return new Set([]);
+    if (page) {
+      setPage((currentPage) => {
+        if (currentPage) {
+          const currValue = parseInt(currentPage);
+          if (currValue >= 2) {
+            return (currValue - 1).toString();
+          } else {
+            return currValue.toString();
+          }
         }
+
+        return null;
       });
     } else {
-      setPage(new Set([]));
+      setPage(null);
     }
   };
 
   const nextPage = () => {
-    if (page.size > 0) {
-      setPage((prevPage) => {
-        const currValue = parseInt(prevPage.values().next().value);
-        if (currValue < lastPage) {
-          return new Set([currValue + 1]);
-        } else {
-          return new Set([]);
+    if (page) {
+      setPage((currentPage) => {
+        if (currentPage) {
+          const currValue = parseInt(currentPage);
+          if (currValue < lastPage) {
+            return (currValue + 1).toString();
+          } else {
+            return currValue.toString();
+          }
         }
+
+        return null;
       });
     } else {
-      setPage(new Set([2]));
+      setPage("2");
     }
   };
 
