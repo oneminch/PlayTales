@@ -1,17 +1,20 @@
 import { Button } from "@nextui-org/react";
 import usePagination from "@/hooks/usePagination";
 import { useEffect, useState } from "react";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import { Icon } from "@iconify/react";
 
 const Pagination = ({ total }: { total: number }) => {
+  const firstPage = 1;
   const lastPage = Math.ceil(total / 8);
 
   const { page, prevPage, nextPage } = usePagination(lastPage);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(firstPage);
 
   useEffect(() => {
-    if (page.size > 0) {
-      setCurrentPage(page.values().next().value);
+    if (page) {
+      setCurrentPage(parseInt(page));
+    } else {
+      setCurrentPage(firstPage);
     }
   }, [page]);
 
