@@ -6,6 +6,7 @@ import LogIn from "@/pages/LogIn.tsx";
 import NotFound from "@/pages/NotFound.tsx";
 import Game from "@/pages/Game";
 import Root from "@/pages/Root.tsx";
+import Search from "@/pages/Search.tsx";
 import SignUp from "@/pages/SignUp.tsx";
 import ToS from "@/pages/ToS";
 import Wishlist from "@/pages/Wishlist.tsx";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LogIn />
+      },
+      {
+        path: "search",
+        element: <Search />
       },
       {
         path: "signup",
