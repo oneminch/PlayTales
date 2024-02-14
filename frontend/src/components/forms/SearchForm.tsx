@@ -53,7 +53,7 @@ const SearchForm = () => {
                   key={game.id}
                   textValue={game.title}
                   className="*:h-16 rounded-lg"
-                  href={game.id}
+                  href={`/games/${game.id}`}
                 >
                   <SearchItem game={game} />
                 </ListboxItem>
@@ -61,11 +61,13 @@ const SearchForm = () => {
           </ListboxSection>
           <ListboxSection>
             <ListboxItem
-              className="py-0"
+              className="rounded-lg"
               key="show-all"
               textValue="Show All Results"
             >
-              <Button className="w-full">Show All Results</Button>
+              <Button className="w-full bg-gray-900 text-gray-50">
+                Show All Results
+              </Button>
             </ListboxItem>
           </ListboxSection>
         </Listbox>
