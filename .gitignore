@@ -157,4 +157,6 @@ dist
 # IDE
 .hintrc
 *.code-workspace
+data.json
 Template.tsx
+build/
