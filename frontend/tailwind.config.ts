@@ -9,10 +9,6 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   mode: "jit",
-  // important: "#root",
-  // corePlugins: {
-  //   preflight: false
-  // },
   theme: {
     extend: {
       fontFamily: {
@@ -31,17 +27,29 @@ export default {
       themes: {
         dark: {
           colors: {
-            focus: "#fbbf24",
+            focus: "#fab005",
+            background: "#212529",
+            foreground: "#f1f3f5",
             primary: {
-              DEFAULT: "#4B5563"
+              DEFAULT: "#343a40",
+              foreground: "#adb5bd"
+            },
+            secondary: {
+              DEFAULT: "#495057"
             }
           }
         },
         light: {
           colors: {
-            focus: "#fbbf24",
+            focus: "#fab005",
+            background: "#f1f3f5",
+            foreground: "#212529",
             primary: {
-              DEFAULT: "#4B5563"
+              DEFAULT: "#ffffff",
+              foreground: "#495057"
+            },
+            secondary: {
+              DEFAULT: "#dee2e6"
             }
           }
         }
