@@ -14,14 +14,9 @@ module.exports = {
       "warn",
       { allowConstantExport: true }
     ],
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react-refresh/only-export-components": "off"
   }
-  // ,overrides: [
-  //   {
-  //     files: ["**/*.js"],
-  //     rules: {
-  //       "react-hooks/exhaustive-deps": "off"
-  //     }
-  //   }
-  // ]
 };
