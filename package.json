@@ -1,0 +1,21 @@
+{
+  "name": "playtales",
+  "version": "1.0.0",
+  "description": "Play Your Next Tale.",
+  "scripts": {
+    "build:frontend": "cd frontend && pnpm install && pnpm run build",
+    "build:backend": "cd backend && pnpm install && pnpm run build",
+    "start": "pnpm run build:frontend && pnpm run build:backend && node backend/build/server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "react",
+    "node",
+    "express",
+    "postgresql",
+    "prisma",
+    "tailwindcss"
+  ],
+  "author": "oneminch",
+  "license": "ISC"
+}
