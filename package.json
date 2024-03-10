@@ -6,7 +6,7 @@
     "build:frontend": "cd frontend && pnpm install && pnpm run build",
     "build:backend": "cd backend && pnpm install && pnpm run build",
     "build": "pnpm run build:frontend && pnpm run build:backend",
-    "start": "pnpm build && node backend/build/server.js"
+    "start": "node backend/build/server.js"
   },
   "keywords": [
     "ecommerce",
