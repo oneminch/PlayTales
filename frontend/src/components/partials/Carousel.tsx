@@ -4,15 +4,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../index.css";
+import type { ChildrenNodes } from "@/types";
 
-const Carousel = ({ children }: { children: React.ReactNode }) => {
+const Carousel = ({ children }: ChildrenNodes) => {
   return (
     <Swiper
       pagination={{
         clickable: true,
         dynamicBullets: true,
         clickableClass:
-          "bg-gray-900/85 ring-1 ring-gray-600 px-3 py-1 rounded-full shadow"
+          "bg-background/85 ring-1 ring-secondary px-3 py-1 rounded-full shadow"
       }}
       loop={true}
       navigation={true}
