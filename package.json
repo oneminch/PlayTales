@@ -5,7 +5,8 @@
   "scripts": {
     "build:frontend": "cd frontend && pnpm install && pnpm run build",
     "build:backend": "cd backend && pnpm install && pnpm run build",
-    "start": "pnpm run build:frontend && pnpm run build:backend && node backend/build/server.js"
+    "build": "pnpm run build:frontend && pnpm run build:backend",
+    "start": "pnpm build && node backend/build/server.js"
   },
   "keywords": [
     "ecommerce",
