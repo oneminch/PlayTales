@@ -1,10 +1,10 @@
 import { Button, Select, SelectItem, Selection } from "@nextui-org/react";
-import { FilterInterface } from "@/types";
+import type { FilterOptions } from "@/types";
 import { Icon } from "@iconify/react";
-import useQueryParams from "@/hooks/useQueryParams";
+import useQueryParams from "@/hooks/use-query-params";
 import { useEffect, useState } from "react";
 
-const Filter = ({ label, options }: FilterInterface) => {
+const Filter = ({ label, options }: FilterOptions) => {
   const { params, setParams } = useQueryParams(label);
   const [selectedValue, setSelectedValue] = useState<Selection>(new Set([]));
 
@@ -26,19 +26,19 @@ const Filter = ({ label, options }: FilterInterface) => {
 
   const handleFilterReset = () => {
     setSelectedValue(new Set([]));
-    setParams(null);
+    setParams("");
   };
 
   return (
-    <div className="flex items-center w-full sm:max-w-xs rounded-xl border border-gray-200 bg-white">
+    <div className="flex items-center w-full sm:max-w-xs rounded-xl border border-secondary bg-primary">
       <Select
         label={label}
         size="sm"
         placeholder="Select an option"
         selectedKeys={selectedValue}
         classNames={{
-          trigger: "bg-white rounded-l-xl rounded-r-none pr-1",
-          popoverContent: "rounded-lg"
+          trigger: "bg-primary rounded-l-xl rounded-r-none pr-1",
+          popoverContent: "rounded-lg bg-primary"
         }}
         onSelectionChange={handleSelectionChange}
         selectorIcon={<Icon icon="heroicons:chevron-up-down-20-solid" />}
@@ -51,14 +51,14 @@ const Filter = ({ label, options }: FilterInterface) => {
       </Select>
       <Button
         isIconOnly
-        isDisabled={selectedValue.size < 1}
+        isDisabled={typeof selectedValue !== "string" && selectedValue.size < 1}
         onPress={handleFilterReset}
         size="sm"
         title={`Reset ${label} Filter`}
         aria-label={`Reset ${label} Filter`}
-        className="w-6 h-6 min-w-6 min-h-6 rounded-full mx-2 text-lg p-0"
+        className="w-6 h-6 min-w-6 bg-transparent min-h-6 rounded-full mx-2 text-lg p-0"
       >
-        <Icon icon="heroicons:x-mark-20-solid" />
+        <Icon icon="heroicons:backspace-20-solid" />
       </Button>
     </div>
   );
