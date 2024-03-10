@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Link } from "@nextui-org/react";
+import { Link, cn } from "@nextui-org/react";
 
 const IconLink = ({
   path,
@@ -17,7 +17,10 @@ const IconLink = ({
       aria-label={label}
       title={label}
       href={path}
-      className={`w-10 h-10 flex items-center justify-center text-lg border border-gray-200 rounded-xl bg-white ${className}`}
+      className={cn(
+        "w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-xl text-foreground bg-primary",
+        className
+      )}
     >
       <Icon icon={icon} />
     </Link>
