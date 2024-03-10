@@ -100,17 +100,17 @@ const SearchForm = ({ className }: { className: string }) => {
             disabledKeys={["loading", "error", "empty"]}
           >
             <ListboxSection showDivider={data && data.count > 0}>
-              {isFetching && (
+              {isFetching && !isError && (
                 <ListboxItem key="loading" className="rounded-lg text-center">
                   Loading Suggestions
                 </ListboxItem>
               )}
-              {isError && (
+              {isError && !isFetching && (
                 <ListboxItem key="error" className="rounded-lg text-center">
                   Error Loading Suggestions
                 </ListboxItem>
               )}
-              {data.count === 0 && (
+              {!isFetching && data.count === 0 && (
                 <ListboxItem key="empty" className="rounded-lg text-center">
                   No Suggestions Found.
                 </ListboxItem>
