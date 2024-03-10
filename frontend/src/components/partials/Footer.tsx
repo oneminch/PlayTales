@@ -107,13 +107,20 @@ const Footer = () => {
       </div>
       <section className="text-sm text-primary-foreground/50">
         <p>
-          &copy; {new Date().getFullYear()} PlayTales. All Rights Reserved. All
-          trademarks are property of their respective owners.
+          Game data is provided by{" "}
+          <Link className="text-focus" href="https://igdb.com">
+            IGDB
+          </Link>{" "}
+          and{" "}
+          <Link className="text-focus" href="https://rawg.io">
+            RAWG
+          </Link>
+          .
         </p>
         <br />
         <p>
-          Game data is provided by <Link href="https://igdb.com">IGDB</Link> and
-          <Link href="https://rawg.io">RAWG</Link>.
+          &copy; {new Date().getFullYear()} PlayTales. All Rights Reserved. All
+          trademarks are property of their respective owners.
         </p>
       </section>
     </footer>
