@@ -110,9 +110,10 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} PlayTales. All Rights Reserved. All
           trademarks are property of their respective owners.
         </p>
+        <br />
         <p>
-          Game data is provided by [IGDB](https://igdb.com) and
-          [RAWG](https://rawg.io)
+          Game data is provided by <Link href="https://igdb.com">IGDB</Link> and
+          <Link href="https://rawg.io">RAWG</Link>.
         </p>
       </section>
     </footer>
