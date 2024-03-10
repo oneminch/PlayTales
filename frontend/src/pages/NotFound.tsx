@@ -1,16 +1,15 @@
-import { useRouteError } from "react-router-dom";
+import Hero from "@/components/partials/Hero";
 
 const NotFound = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const err: any = useRouteError();
-
   return (
-    <>
-      <h1 className="text-3xl font-bold">This Page Doesn't Exist!</h1>
-      <div>
-        <p>{err.statusText || err.message}</p>
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen space-y-4 bg-transparent">
+      <main className="h-full grow flex items-center justify-center space-y-4">
+        <Hero
+          textLabel="This Page Doesn't Exist!"
+          actionLink={{ label: "Go Home", url: "/" }}
+        />
+      </main>
+    </div>
   );
 };
 
