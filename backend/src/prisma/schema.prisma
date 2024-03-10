@@ -1,0 +1,66 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String              @id @unique @default(cuid())
+  firstname String
+  lastname  String
+  email     String              @unique
+  password  String
+  wishlist  WishlistedProduct[]
+  orders    Order[]
+}
+
+model Product {
+  id          String              @id @default(cuid())
+  title       String              @unique
+  description String?
+  ratings     Int[]
+  price       Float
+  discount    Float
+  genre       String[]            @default([])
+  poster      String              @default("")
+  screenshots String[]            @default([])
+  releaseDate String
+  platform    String
+  developer   String
+  publisher   String
+  users       WishlistedProduct[]
+  orders      OrderProduct[]
+}
+
+model Order {
+  id         String         @id @default(cuid())
+  createdAt  DateTime       @default(now())
+  totalPrice Float
+  user       User           @relation(fields: [userId], references: [id])
+  userId     String
+  products   OrderProduct[]
+}
+
+model OrderProduct {
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+
+  // Compound ID
+  @@id([orderId, productId])
+}
+
+model WishlistedProduct {
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String
+
+  // Compound ID
+  @@id([userId, productId])
+}
