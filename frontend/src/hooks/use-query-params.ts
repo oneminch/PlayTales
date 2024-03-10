@@ -1,4 +1,3 @@
-import getSearchParamsCount from "@/utils/get-search-params-count";
 import searchParamsToObject from "@/utils/search-params-to-object";
 import sortObjectByKey from "@/utils/sort-object-by-key";
 import { useEffect, useState } from "react";
@@ -32,7 +31,7 @@ const useQueryParams = (label: string) => {
   useEffect(updateParams, [params]);
 
   const resetParams = () => {
-    if (getSearchParamsCount(searchParams) === 0) {
+    if (searchParams.size === 0) {
       setParams(null);
     }
   };
