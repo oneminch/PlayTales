@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
 
@@ -7,7 +6,6 @@ import authRouter from "./routes/auth.router";
 import productsRouter from "./routes/products.router";
 import searchRouter from "./routes/search.router";
 import userRouter from "./routes/user.router";
-// import initRouter from "./routes/init.router";
 
 import verifyToken from "./middleware/verifyToken";
 
@@ -20,12 +18,6 @@ const frontendDir = path.join(__dirname, "..", "..", "frontend", "dist");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(frontendDir));
 app.use(express.json());
-app.use(
-  cors({
-    origin: [process.env.APP_PUBLIC_URL],
-    credentials: true
-  })
-);
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
