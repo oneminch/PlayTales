@@ -2,10 +2,10 @@ import Hero from "@/components/partials/Hero";
 
 const ToS = () => {
   return (
-    <div className="space-y-4 pt-6 pb-4 text-center">
-      <h1 className="text-2xl font-bold">Terms of Service</h1>
+    <>
+      <h1 className="text-2xl font-bold text-center">Terms of Service</h1>
 
-      <article className="w-full md:w-2/3 mx-auto pb-8">
+      <article className="w-full md:w-2/3 mx-auto pb-8 text-center">
         <p>
           By signing up or creating an account, you understand that PlayTales is
           not a real service and therefore shouldn't even have a Terms of
@@ -15,10 +15,10 @@ const ToS = () => {
       </article>
       <Hero
         className="py-6"
-        textLabel="Play Your Next Story."
+        textLabel="Play Your Next Tale."
         actionLink={{ label: "Browse Games", url: "/" }}
       />
-    </div>
+    </>
   );
 };
 
