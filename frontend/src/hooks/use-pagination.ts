@@ -1,14 +1,26 @@
-import useQueryParams from "./useQueryParams";
+import { useEffect, useState } from "react";
+import useQueryParams from "./use-query-params";
 
-const usePagination = (lastPage: number = 1) => {
+const usePagination = (lastPage: number = 2) => {
+  const firstPage = 1;
+
   const { params: page, setParams: setPage } = useQueryParams("page");
+  const [currentPage, setCurrentPage] = useState<number>(firstPage);
+
+  useEffect(() => {
+    if (page) {
+      setCurrentPage(parseInt(page));
+    } else {
+      setCurrentPage(firstPage);
+    }
+  }, [page]);
 
   const prevPage = () => {
     if (page) {
       setPage((currentPage) => {
         if (currentPage) {
           const currValue = parseInt(currentPage);
-          if (currValue >= 2) {
+          if (currValue > 0) {
             return (currValue - 1).toString();
           } else {
             return currValue.toString();
@@ -17,14 +29,6 @@ const usePagination = (lastPage: number = 1) => {
 
         return null;
       });
-    } else {
-      setPage(null);
-    }
-  };
-
-  const goToPage = (page: number) => {
-    if (page > 0 && page <= lastPage) {
-      setPage(page.toString());
     }
   };
 
@@ -47,7 +51,7 @@ const usePagination = (lastPage: number = 1) => {
     }
   };
 
-  return { page, prevPage, nextPage, goToPage };
+  return { currentPage, setCurrentPage, prevPage, nextPage, setPage };
 };
 
 export default usePagination;
