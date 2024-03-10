@@ -1,58 +1,55 @@
 import CartItem from "@/components/cards/CartItem";
-import { GameItem, CartPriceInterface } from "@/types";
-import { useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   Divider,
-  Link
+  cn
 } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
-import useFetch from "@/hooks/useFetch";
+import { useCartContext } from "@/context/cart-context";
+import { Product } from "@/types";
+import Placeholder from "@/components/Placeholder";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const [cartPrice, setCartPrice] = useState<CartPriceInterface>();
-  const {
-    data: games,
-    loading: isLoading,
-    error: isError
-  } = useFetch("/data.json", []);
-
-  useEffect(() => {
-    setCartPrice(
-      games.slice(0, 3).reduce(
-        (acc: CartPriceInterface, item: GameItem) => {
-          acc.price += item.price;
-          acc.discount += item.discount;
-
-          return acc;
-        },
-        { price: 0, discount: 0 }
-      )
-    );
-  }, [games]);
+  const { count, products, totalPrice } = useCartContext();
 
   return (
-    <div className="space-y-4 pt-6 pb-4">
+    <>
       <h1 className="text-3xl font-bold">Your Cart</h1>
-      <article className="w-full grid grid-cols-3 gap-x-4 grid-rows-[auto_1fr] grid-flow-dense pb-8">
-        {isLoading && <p>Loading...</p>}
-        {isError && <p>An Error Occured...</p>}
-        {games && (
-          <ul className="flex flex-col row-span-1 col-span-2 bg-white border border-gray-200 rounded-xl py-2 px-8">
-            {games.slice(0, 3).map((game: GameItem) => (
-              <li
-                className="h-36 border-b border-gray-200/75 last:border-none"
-                key={game.title}
-              >
-                <CartItem game={game} />
-              </li>
-            ))}
-          </ul>
+      <article
+        className={cn(
+          "w-full grid grid-cols-1 gap-4 grid-rows-[auto_1fr] grid-flow-dense pb-8",
+          count ? "lg:grid-cols-3" : "lg:grid-cols-1"
         )}
-        <aside className="sticky top-4 space-y-4 row-span-3 *:bg-white *:border *:border-gray-200 *:rounded-xl *:py-2 *:px-6">
+      >
+        <ul className="flex flex-col row-span-1 col-span-full lg:col-span-2 bg-primary border border-secondary rounded-xl py-2 px-8">
+          <Placeholder
+            showIf={count === 0}
+            primaryText="Your Cart is Empty."
+            className="border-none min-h-72"
+            actionLink={{ label: "Browse Games", url: "/" }}
+            icon="heroicons:inbox-20-solid"
+          />
+          {Object.entries(products).map(
+            ([productId, product]: [productId: string, product: Product]) => (
+              <li
+                className="border-b border-secondary/75 last:border-none"
+                key={productId}
+              >
+                <CartItem product={product} />
+              </li>
+            )
+          )}
+        </ul>
+        <aside
+          className={cn(
+            "lg:sticky lg:top-4 w-full space-y-4 row-span-3 *:bg-primary *:border *:border-secondary *:rounded-xl *:py-2 *:px-6",
+            !count && "hidden"
+          )}
+        >
           <Card className="shadow-none">
             <CardHeader className="px-0">
               <h3 className="text-xl font-semibold">Cart Summary</h3>
@@ -61,35 +58,35 @@ const Cart = () => {
             <CardBody className="px-0 space-y-4">
               <p className="flex items-center justify-between">
                 <span>Full Price:</span>
-                <span className="text-gray-500">
-                  <s>${cartPrice && cartPrice!.price}</s>
+                <span className="text-primary-foreground/85">
+                  <s>${totalPrice.totalOriginalPrice}</s>
                 </span>
               </p>
               <p className="flex items-center justify-between">
                 <span>Your Savings:</span>
                 <span className="text-emerald-500 font-semibold">
                   -$
-                  {cartPrice &&
-                    ((cartPrice!.discount / 100) * cartPrice!.price).toFixed(2)}
+                  {(
+                    totalPrice.totalOriginalPrice -
+                    totalPrice.totalDiscountedPrice
+                  ).toFixed(2)}
                 </span>
               </p>
               <Divider />
               <p className="flex items-center justify-between">
                 <span>Your Total:</span>
                 <span className="font-semibold">
-                  $
-                  {cartPrice &&
-                    (
-                      (1 - cartPrice!.discount / 100) *
-                      cartPrice!.price
-                    ).toFixed(2)}
+                  ${totalPrice.totalDiscountedPrice}
                 </span>
               </p>
             </CardBody>
             <CardFooter className="px-0">
               <Link
-                href="/checkout"
-                className="w-full flex items-center justify-center gap-x-2 font-medium space-x-1 bg-gray-900 text-gray-50 py-1 rounded-xl"
+                className="w-full flex items-center justify-center gap-x-2 font-medium space-x-1 text-background bg-foreground py-2 rounded-xl"
+                to="/checkout"
+                state={{
+                  fromCart: true
+                }}
               >
                 Checkout
                 <Icon className="text-lg" icon="heroicons:shopping-cart" />
@@ -144,7 +141,7 @@ const Cart = () => {
           </Card>
         </aside>
       </article>
-    </div>
+    </>
   );
 };
 
