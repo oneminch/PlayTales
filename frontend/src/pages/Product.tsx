@@ -173,25 +173,34 @@ const Product = () => {
                   About {data.product.title}
                 </h2>
                 <p>{data.product.description}</p>
-                <div className="flex items-center justify-evenly gap-10 py-10">
-                  {["BetaCritic", "YouCritic", "GameCritic"].map(
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-10 py-10">
+                  {["BetaCritic", "YouCritic", "GamerCritic"].map(
                     (label: string, index: number) => (
-                      <CircularProgress
+                      <div
                         key={label}
-                        label={label}
-                        aria-label={label}
-                        size="lg"
-                        value={data.product.ratings[index]}
-                        color="default"
-                        classNames={{
-                          svg: "w-24 h-24 drop-shadow-md",
-                          indicator: "stroke-emerald-500",
-                          track: "stroke-emerald-500/10",
-                          value: "text-xl font-semibold text-foreground"
-                        }}
-                        strokeWidth={4}
-                        showValueLabel={true}
-                      />
+                        className="w-full last:col-span-full sm:last:col-span-1"
+                      >
+                        <CircularProgress
+                          label={label}
+                          aria-label={label}
+                          size="lg"
+                          value={data.product.ratings[index]}
+                          color="default"
+                          mx-auto
+                          h-24
+                          w-24
+                          rounded-full
+                          className="mx-auto"
+                          classNames={{
+                            svg: "w-24 h-24 drop-shadow-md",
+                            indicator: "stroke-emerald-500",
+                            track: "stroke-emerald-500/10",
+                            value: "text-xl font-semibold text-foreground"
+                          }}
+                          strokeWidth={4}
+                          showValueLabel={true}
+                        />
+                      </div>
                     )
                   )}
                 </div>
