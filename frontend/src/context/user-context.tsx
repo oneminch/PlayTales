@@ -4,6 +4,7 @@ import type { ChildrenNodes, UserContext } from "@/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuthContext } from "./auth-context";
 import useMutate from "@/hooks/use-mutate";
+import { useNavigate } from "react-router-dom";
 
 const initialUserContext: UserContext = {
   userInfo: null,
@@ -18,6 +19,8 @@ export const UserCtx = createContext(initialUserContext);
 
 export const UserProvider = ({ children }: ChildrenNodes) => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const { isLoggedIn } = useAuthContext();
   const [userInfo, setUserInfo] = useState(initialUserContext.userInfo);
   const [userOrders, setUserOrders] = useState(initialUserContext.userOrders);
@@ -60,7 +63,12 @@ export const UserProvider = ({ children }: ChildrenNodes) => {
       productIds: productIds
     })
       .then((data) => {
-        toast.success(data.message);
+        toast.success(data.message, {
+          action: {
+            label: "View Orders",
+            onClick: () => navigate("/account")
+          }
+        });
         callback();
       })
       .catch((error) => {

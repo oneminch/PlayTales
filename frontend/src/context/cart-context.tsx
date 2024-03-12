@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "@mantine/hooks";
 import type { CartContext, ChildrenNodes, Product } from "@/types";
 import { getCartCount, getCartTotalPrice } from "@/utils/get-cart-info";
+import { useNavigate } from "react-router-dom";
 
 const initialCartContext: CartContext = {
   products: {},
@@ -20,6 +21,8 @@ const CartCtx = createContext<CartContext>(initialCartContext);
 
 export const CartProvider = ({ children }: ChildrenNodes) => {
   const { products, count, totalPrice } = initialCartContext;
+
+  const navigate = useNavigate();
 
   const [cartProducts, setCartProducts] = useLocalStorage<
     Record<string, Product>
@@ -40,11 +43,21 @@ export const CartProvider = ({ children }: ChildrenNodes) => {
       const updatedCart = { ...cartProducts };
       delete updatedCart[product.id];
       setCartProducts(updatedCart);
-      toast.success("Item Removed from Cart");
+      toast.success("Item Removed from Cart", {
+        action: {
+          label: "View Cart",
+          onClick: () => navigate("/cart")
+        }
+      });
     } else {
       const updatedCart = { ...cartProducts, [product.id]: product };
       setCartProducts(updatedCart);
-      toast.success("Item Added to Cart");
+      toast.success("Item Added to Cart", {
+        action: {
+          label: "View Cart",
+          onClick: () => navigate("/cart")
+        }
+      });
     }
   };
 

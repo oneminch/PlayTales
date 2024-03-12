@@ -4,6 +4,7 @@ import type { ChildrenNodes, Product, WishlistContext } from "@/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useMutate from "@/hooks/use-mutate";
 import { useAuthContext } from "./auth-context";
+import { useNavigate } from "react-router-dom";
 
 const initialWishlistContext: WishlistContext = {
   wishlist: [],
@@ -21,6 +22,8 @@ export const WishlistCtx = createContext(initialWishlistContext);
 
 export const WishlistProvider = ({ children }: ChildrenNodes) => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const { isLoggedIn } = useAuthContext();
 
   const response = useQuery<any>({
@@ -72,13 +75,23 @@ export const WishlistProvider = ({ children }: ChildrenNodes) => {
 
   const toggleProductWishlistStatus = (productId: string) => {
     if (!isLoggedIn) {
-      toast.error("Log In or Sign Up to Wishlist Items.");
+      toast.error("Log In or Sign Up to Wishlist Items.", {
+        action: {
+          label: "Log In",
+          onClick: () => navigate("/login")
+        }
+      });
     } else {
       mutateAsync({
         productId: productId
       })
         .then((data) => {
-          toast.success(data.message);
+          toast.success(data.message, {
+            action: {
+              label: "View Wishlist",
+              onClick: () => navigate("/wishlist")
+            }
+          });
         })
         .catch((error) => {
           toast.error(error.message);
