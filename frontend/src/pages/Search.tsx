@@ -30,7 +30,7 @@ const Search = () => {
 
   return (
     <DefaultPageLayout title={`"${searchQuery}"`}>
-      <h1 className="text-2xl font-bold">Search Results for "{searchQuery}"</h1>
+      <h1 className="text-3xl font-bold">Search Results for "{searchQuery}"</h1>
       <ProductList data={data} isError={isError} isLoading={isFetching} />
     </DefaultPageLayout>
   );

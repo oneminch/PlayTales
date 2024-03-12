@@ -3,7 +3,7 @@ import Hero from "@/components/partials/Hero";
 const ToS = () => {
   return (
     <>
-      <h1 className="text-2xl font-bold text-center">Terms of Service</h1>
+      <h1 className="text-3xl font-bold text-center">Terms of Service</h1>
 
       <article className="w-full md:w-2/3 mx-auto pb-8 text-center">
         <p>

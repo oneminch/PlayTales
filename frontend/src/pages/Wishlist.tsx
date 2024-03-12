@@ -45,7 +45,7 @@ const Wishlist = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold">Your Wishlist</h1>
+      <h1 className="text-3xl font-bold">Your Wishlist</h1>
       <p className="text-primary-foreground">
         Keep Track of Tales You Want to Play.
       </p>
