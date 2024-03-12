@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import prisma from "../config/prisma";
 import { Product } from "@prisma/client";
+import cleanErrorMessage from "../utils/clean-error-message";
 
 const productList: Product[] = [
   {
@@ -414,7 +415,7 @@ const generateInitialData = async (req: Request, res: Response) => {
 
     res.status(200).send({ products });
   } catch (err) {
-    res.status(500).send({ message: err.message });
+    res.status(500).send({ message: cleanErrorMessage(err) });
   }
 };
 

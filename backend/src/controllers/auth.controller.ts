@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import prisma from "../config/prisma";
 import { validate, emailRegex, passwordRegex } from "../utils/validate";
+import cleanErrorMessage from "../utils/clean-error-message";
 
 const signUp = async (req: Request, res: Response) => {
   const firstName = req.body.firstName.trim();
@@ -31,7 +32,7 @@ const signUp = async (req: Request, res: Response) => {
 
     res.status(200).json({ message: "Registration Successful!" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: cleanErrorMessage(err) });
   }
 };
 
@@ -52,13 +53,13 @@ const logIn = async (req: Request, res: Response) => {
     });
 
     if (!user) {
-      throw new Error("Invalid Email or Password! Try Again.");
+      throw new Error("Invalid Email/Password! Try Again.");
     }
 
     const passwordIsValid = bcrypt.compareSync(password, user.password);
 
     if (!passwordIsValid) {
-      throw new Error("Invalid Email or Password! Try Again.");
+      throw new Error("Invalid Email/Password! Try Again.");
     }
 
     const token = jwt.sign({ userId: user.id }, process.env.JWT_KEY, {
@@ -78,7 +79,7 @@ const logIn = async (req: Request, res: Response) => {
         message: "Log In Successful!"
       });
   } catch (err) {
-    res.status(403).json({ message: err.message });
+    res.status(403).json({ message: cleanErrorMessage(err) });
   }
 };
 
@@ -93,7 +94,7 @@ const logOut = (req: Request, res: Response) => {
       .status(200)
       .json({ message: "Log Out Successful!" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: cleanErrorMessage(err) });
   }
 };
 
