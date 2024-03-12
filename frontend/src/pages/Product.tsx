@@ -10,6 +10,7 @@ import type { Product } from "@/types";
 import { useWishlistContext } from "@/context/wishlist-context";
 import Placeholder from "@/components/Placeholder";
 import Layout from "@/layout/Layout";
+import SearchForm from "@/components/forms/SearchForm";
 
 const Product = () => {
   const { productId } = useParams();
@@ -48,8 +49,11 @@ const Product = () => {
           ? `${data.product.title} (Game)`
           : ""
       }`}
+      className="space-y-4"
     >
-      <article className="flex flex-col gap-y-4 my-8">
+      <SearchForm className="block md:hidden" />
+
+      <article className="flex flex-col gap-y-4 pb-8">
         <Placeholder
           showIf={isFetching || !data.product}
           primaryText="Loading Product..."
