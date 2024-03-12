@@ -6,7 +6,6 @@ import { CartProvider } from "@/context/cart-context";
 import { WishlistProvider } from "@/context/wishlist-context";
 import { ThemeProvider } from "@/context/theme-context";
 import { UserProvider } from "@/context/user-context";
-
 import { Outlet, useNavigate } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import {
@@ -14,6 +13,7 @@ import {
   QueryClientProvider,
   QueryKey
 } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 
 const defaultQueryFn = async ({ queryKey }: { queryKey: QueryKey }) => {
   try {
@@ -40,29 +40,30 @@ const Root = () => {
   const navigate = useNavigate();
 
   return (
-    <NextUIProvider navigate={navigate}>
-      <ThemeProvider>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <CartProvider>
-              <UserProvider>
-                <WishlistProvider>
-                  <div className="flex flex-col min-h-screen space-y-4">
-                    <Header />
-                    <main className="grow">
-                      <Toaster position="bottom-center" />
-
-                      <Outlet />
-                    </main>
-                    <Footer />
-                  </div>
-                </WishlistProvider>
-              </UserProvider>
-            </CartProvider>
-          </AuthProvider>
-        </QueryClientProvider>
-      </ThemeProvider>
-    </NextUIProvider>
+    <HelmetProvider>
+      <NextUIProvider navigate={navigate}>
+        <ThemeProvider>
+          <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+              <CartProvider>
+                <UserProvider>
+                  <WishlistProvider>
+                    <div className="flex flex-col min-h-screen space-y-4">
+                      <Header />
+                      <main className="grow">
+                        <Toaster position="bottom-center" />
+                        <Outlet />
+                      </main>
+                      <Footer />
+                    </div>
+                  </WishlistProvider>
+                </UserProvider>
+              </CartProvider>
+            </AuthProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </NextUIProvider>
+    </HelmetProvider>
   );
 };
 
