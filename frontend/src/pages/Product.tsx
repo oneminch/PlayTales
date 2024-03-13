@@ -224,14 +224,13 @@ const Product = () => {
                   </span>
                   <br />
                   <span>
-                    {new Date(data.product.releaseDate).toLocaleDateString(
-                      "en-US",
-                      {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric"
-                      }
-                    )}
+                    {new Date(
+                      data.product.releaseDate.replace(/-/g, "/")
+                    ).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric"
+                    })}
                   </span>
                 </p>
                 <p>
