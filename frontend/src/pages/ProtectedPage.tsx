@@ -9,7 +9,11 @@ const ProtectedPage = ({ children }: ChildrenNodes) => {
   return isLoggedIn === true ? (
     children
   ) : (
-    <Navigate to="/login" state={{ redirectTo: pathname }} replace />
+    <Navigate
+      to="/login"
+      state={{ redirectTo: pathname, fromProtectedPage: true }}
+      replace
+    />
   );
 };
 

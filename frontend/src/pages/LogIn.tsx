@@ -5,11 +5,18 @@ import LogInForm from "@/components/forms/LogInForm";
 import { useEffect } from "react";
 import { useAuthContext } from "@/context/auth-context";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const LogIn = () => {
   const { isLoggedIn } = useAuthContext();
   const navigate = useNavigate();
   const { state } = useLocation();
+
+  useEffect(() => {
+    if (state?.fromProtectedPage) {
+      toast.error("Please Log In First.");
+    }
+  }, []);
 
   useEffect(() => {
     if (isLoggedIn) {
