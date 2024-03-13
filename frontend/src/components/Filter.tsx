@@ -30,14 +30,14 @@ const Filter = ({ label, options }: FilterOptions) => {
   };
 
   return (
-    <div className="flex items-center w-full sm:max-w-xs rounded-xl border border-secondary bg-primary">
+    <div className="flex items-center w-full sm:max-w-xs rounded-lg border border-secondary bg-primary">
       <Select
         label={label}
         size="sm"
         placeholder="Select an option"
         selectedKeys={selectedValue}
         classNames={{
-          trigger: "bg-primary rounded-l-xl rounded-r-none pr-1",
+          trigger: "bg-primary rounded-l-lg rounded-r-none pr-1",
           popoverContent: "rounded-lg bg-primary"
         }}
         onSelectionChange={handleSelectionChange}

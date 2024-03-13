@@ -12,7 +12,7 @@ const Hero = ({
   return (
     <section
       className={cn(
-        "flex flex-col items-center justify-center rounded-xl gap-y-12 w-full",
+        "flex flex-col items-center justify-center rounded-lg gap-y-12 w-full",
         className
       )}
     >
@@ -34,7 +34,7 @@ const Hero = ({
       {actionLink && (
         <Link
           href={actionLink.url}
-          className="px-4 py-1.5 rounded-xl font-medium text-primary bg-foreground"
+          className="px-4 py-1.5 rounded-lg font-medium text-primary bg-foreground"
         >
           {actionLink.label}
         </Link>

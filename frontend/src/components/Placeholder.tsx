@@ -20,7 +20,7 @@ const Placeholder = ({
     showIf && (
       <div
         className={cn(
-          "flex flex-col items-center justify-center gap-y-4 rounded-xl p-6 bg-primary text-primary-foreground border border-secondary min-h-56",
+          "flex flex-col items-center justify-center gap-y-4 rounded-lg p-6 bg-primary text-primary-foreground border border-secondary min-h-56",
           className
         )}
       >
@@ -32,7 +32,7 @@ const Placeholder = ({
         {actionLink && (
           <Link
             href={actionLink.url}
-            className="px-4 py-1.5 rounded-xl font-medium text-foreground bg-background"
+            className="px-4 py-1.5 rounded-lg font-medium text-foreground bg-background"
           >
             {actionLink.label}
           </Link>

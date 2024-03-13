@@ -61,7 +61,7 @@ const Nav = () => {
             <DropdownTrigger>
               <Button
                 isIconOnly
-                className="text-foreground bg-primary w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-xl"
+                className="text-foreground bg-primary w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-lg"
                 aria-label="Your Account"
                 title="Your Account"
                 size="sm"
@@ -173,7 +173,7 @@ const Nav = () => {
               href="/cart"
               aria-label="Your Cart"
               title="Your Cart"
-              className="h-10 px-4 space-x-2 flex items-center justify-center text-lg border border-secondary rounded-xl text-foreground bg-primary"
+              className="h-10 px-4 space-x-2 flex items-center justify-center text-lg border border-secondary rounded-lg text-foreground bg-primary"
             >
               <Icon icon="heroicons:shopping-cart-20-solid" />
               <span className="text-sm">

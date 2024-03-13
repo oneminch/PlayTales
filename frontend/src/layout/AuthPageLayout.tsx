@@ -5,7 +5,7 @@ const AuthPageLayout: React.FC<LayoutProps> = ({ title, children }) => {
   return (
     <Layout
       title={title}
-      className="bg-primary border border-secondary rounded-xl py-6 md:py-10"
+      className="bg-primary border border-secondary rounded-lg py-6 md:py-10"
     >
       {children}
     </Layout>

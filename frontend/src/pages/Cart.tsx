@@ -25,7 +25,7 @@ const Cart = () => {
           count ? "lg:grid-cols-3" : "lg:grid-cols-1"
         )}
       >
-        <ul className="flex flex-col row-span-1 col-span-full lg:col-span-2 bg-primary border border-secondary rounded-xl py-2 px-8">
+        <ul className="flex flex-col row-span-1 col-span-full lg:col-span-2 bg-primary border border-secondary rounded-lg py-2 px-8">
           <Placeholder
             showIf={count === 0}
             primaryText="Your Cart is Empty."
@@ -46,7 +46,7 @@ const Cart = () => {
         </ul>
         <aside
           className={cn(
-            "lg:sticky lg:top-4 w-full space-y-4 row-span-3 *:bg-primary *:border *:border-secondary *:rounded-xl *:py-2 *:px-6",
+            "lg:sticky lg:top-4 w-full space-y-4 row-span-3 *:bg-primary *:border *:border-secondary *:rounded-lg *:py-2 *:px-6",
             !count && "hidden"
           )}
         >
@@ -82,7 +82,7 @@ const Cart = () => {
             </CardBody>
             <CardFooter className="px-0">
               <Link
-                className="w-full flex items-center justify-center gap-x-2 font-medium space-x-1 text-background bg-foreground py-2 rounded-xl"
+                className="w-full flex items-center justify-center gap-x-2 font-medium space-x-1 text-background bg-foreground py-2 rounded-lg focus:global-focus"
                 to="/checkout"
                 state={{
                   fromCart: true

@@ -112,7 +112,7 @@ const PaymentForm = ({
       </div>
       <Button
         type="submit"
-        className="w-56 font-medium text-foreground bg-background px-4 py-1 rounded-xl"
+        className="w-56 font-medium text-foreground bg-background px-4 py-1 rounded-lg"
       >
         Save Payment Information
       </Button>
@@ -133,7 +133,7 @@ const PaymentForm = ({
       </p>
 
       <Button
-        className="w-56 mt-4 font-medium text-foreground bg-background px-4 py-1 rounded-xl"
+        className="w-56 mt-4 font-medium text-foreground bg-background px-4 py-1 rounded-lg"
         onPress={() => setPaymentSaved(false)}
       >
         Edit Payment Information

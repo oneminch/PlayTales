@@ -15,7 +15,7 @@ const Banner = ({
     isVisible && (
       <section
         className={cn(
-          "flex items-center flex-col md:flex-row h-96 md:h-72 rounded-xl w-full overflow-hidden relative",
+          "flex items-center flex-col md:flex-row h-96 md:h-72 rounded-lg w-full overflow-hidden relative",
           className
         )}
       >
@@ -35,7 +35,7 @@ const Banner = ({
           </h2>
           <Link
             href={actionLink.url}
-            className="px-4 py-1.5 rounded-xl font-medium text-background bg-foreground"
+            className="px-4 py-1.5 rounded-lg font-medium text-background bg-foreground"
           >
             {actionLink.label}
           </Link>

@@ -4,7 +4,7 @@
 
 @layer utilities {
   .global-focus {
-    @apply outline-none ring-2 ring-offset-0 ring-amber-500;
+    @apply outline-none ring-2 ring-offset-0 ring-[#fab005];
   }
 }
 

@@ -67,7 +67,7 @@ const SearchForm = ({ className }: { className: string }) => {
           type="text"
           radius="md"
           placeholder="Search games..."
-          className="w-full bg-primary rounded-xl"
+          className="w-full bg-primary rounded-lg"
           classNames={{
             input: "px-2 text-base",
             base: "h-full p-0 border border-secondary bg-primary",
@@ -88,7 +88,7 @@ const SearchForm = ({ className }: { className: string }) => {
       </form>
       {isSearching && (
         <div
-          className={`w-full rounded-xl z-50 absolute top-full mt-1 shadow-lg left-0 bg-primary border border-secondary transition-all duration-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible translate-y-2 opacity-0 invisible`}
+          className={`w-full rounded-lg z-50 absolute top-full mt-1 shadow-lg left-0 bg-primary border border-secondary transition-all duration-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible translate-y-2 opacity-0 invisible`}
         >
           <Listbox
             shouldFocusWrap={true}

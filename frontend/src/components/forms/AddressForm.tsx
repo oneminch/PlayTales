@@ -144,7 +144,7 @@ const AddressForm = ({
       </div>
       <Button
         type="submit"
-        className="w-32 font-medium text-foreground bg-background px-4 py-1 rounded-xl"
+        className="w-32 font-medium text-foreground bg-background px-4 py-1 rounded-lg"
       >
         Save Address
       </Button>
@@ -192,7 +192,7 @@ const AddressForm = ({
         {addressDetails.countryInput}
       </p>
       <Button
-        className="w-32 mt-4 font-medium text-foreground bg-background px-4 py-1 rounded-xl"
+        className="w-32 mt-4 font-medium text-foreground bg-background px-4 py-1 rounded-lg"
         onPress={() => setAddressSaved(false)}
       >
         Edit Address

@@ -18,7 +18,7 @@ const Account = () => {
       <article className="w-full grid grid-cols-1 lg:grid-cols-3 grid-flow-dense gap-4 grid-rows-[auto_1fr] pb-8">
         <section className="w-full col-span-full lg:col-span-2 space-y-3">
           <h3 className="text-xl font-bold">Purchases</h3>
-          <div className="px-8 py-4 bg-primary border border-secondary rounded-xl space-y-4">
+          <div className="px-8 py-4 bg-primary border border-secondary rounded-lg space-y-4">
             {!isLoading && userOrders ? (
               <>
                 <Placeholder
@@ -55,7 +55,7 @@ const Account = () => {
             )}
           </div>
         </section>
-        <aside className="lg:sticky lg:top-4 w-full space-y-4 row-start-1 col-start-1 lg:row-start-auto lg:col-start-auto row-span-3 lg:pt-10 *:bg-primary *:border *:border-secondary *:rounded-xl *:py-2 *:px-6">
+        <aside className="lg:sticky lg:top-4 w-full space-y-4 row-start-1 col-start-1 lg:row-start-auto lg:col-start-auto row-span-3 lg:pt-10 *:bg-primary *:border *:border-secondary *:rounded-lg *:py-2 *:px-6">
           {!isLoading && userInfo && (
             <Card className="shadow-none">
               <CardBody className="px-0 py-6 space-y-2 flex flex-col items-center">

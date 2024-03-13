@@ -18,7 +18,7 @@ const IconLink = ({
       title={label}
       href={path}
       className={cn(
-        "w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-xl text-foreground bg-primary",
+        "w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-lg text-foreground bg-primary",
         className
       )}
     >

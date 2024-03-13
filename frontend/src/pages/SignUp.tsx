@@ -24,7 +24,7 @@ const SignUp = () => {
         <p>Or Sign Up with</p>
         <div className="flex items-center gap-2 *:w-full">
           <Button
-            className="text-foreground bg-background border border-secondary rounded-xl"
+            className="text-foreground bg-background border border-secondary rounded-lg"
             startContent={
               <Icon className="shrink-0" icon="logos:google-icon" />
             }
@@ -32,7 +32,7 @@ const SignUp = () => {
             Google
           </Button>
           <Button
-            className="text-foreground bg-background border border-secondary rounded-xl"
+            className="text-foreground bg-background border border-secondary rounded-lg"
             startContent={<Icon className="shrink-0" icon="logos:facebook" />}
           >
             Facebook

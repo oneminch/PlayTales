@@ -55,7 +55,7 @@ const Checkout = () => {
     <>
       <h1 className="text-3xl font-bold">Checkout</h1>
       <article className="w-full grid grid-cols-3 gap-x-4 grid-rows-[auto_1fr] grid-flow-dense pb-8">
-        <div className="bg-primary border border-secondary rounded-xl p-8 w-full row-span-2 col-span-2 space-y-4">
+        <div className="bg-primary border border-secondary rounded-lg p-8 w-full row-span-2 col-span-2 space-y-4">
           <section className="space-y-4">
             <h3 className="text-xl font-bold">Billing Address</h3>
             <AddressForm
@@ -117,7 +117,7 @@ const Checkout = () => {
             </Accordion>
           </section>
         </div>
-        <aside className="sticky top-4 space-y-4 row-span-1 *:bg-primary *:border *:border-secondary *:rounded-xl *:py-2 *:px-6">
+        <aside className="sticky top-4 space-y-4 row-span-1 *:bg-primary *:border *:border-secondary *:rounded-lg *:py-2 *:px-6">
           <Card className="shadow-none">
             <CardHeader className="px-0">
               <h3 className="text-xl font-semibold">Order Summary</h3>
@@ -153,7 +153,7 @@ const Checkout = () => {
                 isDisabled={!addressSaved || !paymentSaved || isMutating > 0}
                 onPress={handleOrder}
                 spinnerPlacement="end"
-                className="w-full font-medium bg-foreground text-background py-1 rounded-xl disabled:cursor-not-allowed"
+                className="w-full font-medium bg-foreground text-background py-1 rounded-lg disabled:cursor-not-allowed"
               >
                 Submit Order
               </Button>

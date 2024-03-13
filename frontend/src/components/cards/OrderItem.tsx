@@ -3,7 +3,7 @@ import { Image } from "@nextui-org/react";
 const OrderItem = ({ orderDetails }: { orderDetails: Record<string, any> }) => {
   return (
     orderDetails && (
-      <div className="min-h-36 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center py-4">
+      <div className="min-h-36 rounded-lg flex flex-col md:flex-row gap-4 items-start md:items-center py-4">
         <div className="flex gap-4 items-start">
           <Image
             width={96}

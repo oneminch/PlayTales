@@ -156,7 +156,7 @@ const SignUpForm = () => {
         </p>
         <Button
           type="submit"
-          className="rounded-xl text-background bg-foreground"
+          className="rounded-lg text-background bg-foreground"
         >
           Sign Up
         </Button>

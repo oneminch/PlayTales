@@ -68,7 +68,7 @@ const Product = () => {
         {!isError && !isFetching && data.product && (
           <>
             <div className="flex flex-col-reverse md:flex-row items-start gap-x-0 gap-y-4 md:gap-y-0 md:gap-x-4">
-              <section className="w-full md:w-2/3 flex flex-col gap-y-4 border border-secondary bg-primary/25 rounded-xl">
+              <section className="w-full md:w-2/3 flex flex-col gap-y-4 border border-secondary bg-primary/25 rounded-lg">
                 <Carousel>
                   {data.product.screenshots.map((image: string) => (
                     <SwiperSlide
@@ -89,7 +89,7 @@ const Product = () => {
                   ))}
                 </Carousel>
               </section>
-              <section className="w-full md:w-1/3 pt-4 pb-8 px-8 flex flex-col gap-y-12 border border-secondary bg-primary rounded-xl">
+              <section className="w-full md:w-1/3 pt-4 pb-8 px-8 flex flex-col gap-y-12 border border-secondary bg-primary rounded-lg">
                 <div className="flex flex-col gap-y-4">
                   <h1 className="text-3xl font-bold">{data.product.title}</h1>
                   <Chip
@@ -135,7 +135,7 @@ const Product = () => {
                 </div>
                 <div className="space-y-4">
                   <Button
-                    className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-background text-foreground py-1 rounded-xl"
+                    className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-background text-foreground py-1 rounded-lg"
                     onPress={() => handleToggleCart(data.product)}
                     endContent={
                       <Icon
@@ -149,7 +149,7 @@ const Product = () => {
                       : "Add to Cart"}
                   </Button>
                   <Button
-                    className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-foreground text-background py-1 rounded-xl"
+                    className="w-full flex items-center gap-x-2 font-medium space-x-1 bg-foreground text-background py-1 rounded-lg"
                     onPress={handleToggleWishlist}
                     title={wishlistAction}
                     endContent={
@@ -171,7 +171,7 @@ const Product = () => {
                 </div>
               </section>
             </div>
-            <div className="flex flex-col md:flex-row items-start gap-x-0 gap-y-4 md:gap-y-0 md:gap-x-4 border border-secondary bg-primary rounded-xl">
+            <div className="flex flex-col md:flex-row items-start gap-x-0 gap-y-4 md:gap-y-0 md:gap-x-4 border border-secondary bg-primary rounded-lg">
               <section className="w-full md:w-2/3 p-8 space-y-4">
                 <h2 className="text-xl font-bold">
                   About {data.product.title}

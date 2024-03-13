@@ -24,7 +24,7 @@ const CartItem = ({ product }: { product: Product }) => {
   };
 
   return (
-    <div className="min-h-36 rounded-xl flex gap-x-6 items-start py-4">
+    <div className="min-h-36 rounded-lg flex gap-x-6 items-start py-4">
       <Image
         width={96}
         height={128}

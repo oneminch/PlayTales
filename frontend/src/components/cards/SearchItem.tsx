@@ -4,7 +4,7 @@ import ProductPriceText from "../ProductPriceText";
 
 const SearchItem = ({ product }: { product: Product }) => {
   return (
-    <div className="min-h-12 rounded-xl flex gap-x-2 items-start py-1">
+    <div className="min-h-12 rounded-lg flex gap-x-2 items-start py-1">
       <Image
         width={48}
         height={64}
