@@ -17,5 +17,5 @@ body {
 }
 
 #root {
-  @apply min-w-96 max-w-screen-xl mx-auto px-3 py-3 sm:px-6 sm:py-4;
+  @apply min-w-96 max-w-screen-notebook laptop:max-w-screen-xl mx-auto px-3 py-3 sm:px-6 sm:py-4;
 }

@@ -18,6 +18,8 @@ export default {
     },
     screens: {
       xs: "475px",
+      notebook: "1200px",
+      laptop: "1366px",
       ...defaultTheme.screens
     }
   },
