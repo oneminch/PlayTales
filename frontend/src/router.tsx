@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Layout title="Browse" className="space-y-4">
+          <Layout title="Browse" className="*:mb-4">
             <Home />
           </Layout>
         )
