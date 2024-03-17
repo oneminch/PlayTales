@@ -24,7 +24,7 @@ const Footer = () => {
               <IconLink
                 label="GitHub Profile"
                 className="rounded-full"
-                path="https://github.com/oneminch"
+                path="https://github.com/oneminch/PlayTales"
                 icon="simple-icons:github"
               />
             </li>
