@@ -20,15 +20,15 @@ const Layout: React.FC<LayoutProps> = ({ title, children, className }) => {
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
 
-        <meta property="og:url" content="https://playtales.oneminch.dev" />
+        <meta property="og:url" content="https://playtales.minch.dev" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content="/social-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="playtales.oneminch.dev" />
-        <meta property="twitter:url" content="https://playtales.oneminch.dev" />
+        <meta property="twitter:domain" content="playtales.minch.dev" />
+        <meta property="twitter:url" content="https://playtales.minch.dev" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
         <meta name="twitter:image" content="/social-image.png" />
