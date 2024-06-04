@@ -48,10 +48,10 @@ const ProductList = ({
           secondaryText="Reload the Page to Try Again."
           icon="heroicons:exclamation-triangle-20-solid"
         />
-        {data.products && (
+        {!isLoading && !isError && data.products && (
           <>
             <Placeholder
-              showIf={!isLoading && data.products.length === 0}
+              showIf={data.products.length === 0}
               primaryText="No Products Found."
               secondaryText="Reset Filters and Try Again."
               icon="heroicons:inbox-20-solid"

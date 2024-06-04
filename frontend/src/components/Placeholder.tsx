@@ -20,7 +20,7 @@ const Placeholder = ({
     showIf && (
       <div
         className={cn(
-          "flex flex-col items-center justify-center gap-y-4 rounded-lg p-6 bg-primary text-primary-foreground border border-secondary min-h-56",
+          "flex flex-col items-center justify-center gap-y-4 rounded-lg p-6 text-primary-foreground min-h-56",
           className
         )}
       >
