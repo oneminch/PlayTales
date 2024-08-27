@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies and Build
         run: |
           pnpm install
-          pnpm run build --if-present
+          pnpm run build
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
