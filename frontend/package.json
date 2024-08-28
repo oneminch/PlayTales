@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/inter": "^5.0.16",
     "@mantine/hooks": "^7.5.3",
     "@nextui-org/react": "^2.2.9",
