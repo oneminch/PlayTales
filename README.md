@@ -4,6 +4,13 @@ An online store for purchasing story-driven games.
 
 ![Screenshot](/frontend/public/screenshot.png)
 
+> [!note]
+> Project is deployable to both [Render](https://render.com) and [Vercel](https://vercel.com) platforms.
+>
+> The [`main`](https://github.com/oneminch/PlayTales/tree/main) branch contains the code for Vercel.
+>
+> The [`original`](https://github.com/oneminch/PlayTales/tree/original) branch contains the code for Render.
+
 ## Stack
 
 **Frontend** - `React`, `Tailwind CSS`, `React Router`, `Tanstack Query`
