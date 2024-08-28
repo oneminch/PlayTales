@@ -11,10 +11,8 @@ import verifyToken from "./middleware/verifyToken";
 
 const app = express();
 
-const frontendDir = path.join(__dirname, "..", "..", "frontend", "dist");
-
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(frontendDir));
+app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +23,9 @@ app.use("/api/search", searchRouter);
 app.use("/api/user", verifyToken, userRouter);
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(frontendDir, "index.html"));
+  res.sendFile(
+    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+  );
 });
 
 export default app;

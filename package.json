@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Play Your Next Tale.",
   "scripts": {
-    "build:frontend": "cd frontend && pnpm install && pnpm run build",
-    "build:backend": "cd backend && pnpm install && pnpm run build",
+    "build:frontend": "cd frontend && pnpm run build",
+    "build:backend": "cd backend && pnpm run build",
     "build": "pnpm run build:frontend && pnpm run build:backend",
-    "start": "node backend/build/server.js"
+    "start": "node backend/build/server.js",
+    "install:frontend": "cd frontend && pnpm install",
+    "install:backend": "cd backend && pnpm install",
+    "install": "pnpm run install:frontend && pnpm run install:backend"
   },
   "keywords": [
     "ecommerce",
