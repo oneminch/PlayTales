@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon ./src/server.ts",
     "start": "node ./build/server.js",
+    "postinstall": "prisma generate",
     "build": "pnpm dlx prisma generate && tsc -p .",
     "reset": "pnpm dlx prisma migrate reset && pnpm dlx prisma db push && pnpm dlx prisma generate"
   },

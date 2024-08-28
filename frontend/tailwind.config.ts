@@ -12,8 +12,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono]
+        sans: ["Inter", ...defaultTheme.fontFamily.sans]
       }
     },
     screens: {

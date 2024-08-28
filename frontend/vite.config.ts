@@ -4,21 +4,12 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+  base: "/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src")
     }
   },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:8888",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, "")
-      }
-    }
-  },
-  mode: "production",
   build: {
     sourcemap: false
   }

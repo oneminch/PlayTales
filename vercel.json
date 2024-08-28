@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index.ts" }],
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "frontend/dist"
+}
