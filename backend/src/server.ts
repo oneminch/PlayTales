@@ -8,6 +8,7 @@ import searchRouter from "./routes/search.router";
 import userRouter from "./routes/user.router";
 
 import verifyToken from "./middleware/verifyToken";
+import notFound from "./middleware/notFound";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/search", searchRouter);
 app.use("/api/user", verifyToken, userRouter);
+app.use("/api/*", notFound);
 
 app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(frontendDir, "index.html"));
