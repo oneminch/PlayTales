@@ -22,4 +22,4 @@ An online store for purchasing story-driven games.
 - [ ] Confirm Password on Sign Up
 - [ ] 'Remember Me' Option on Log In
 - [ ] Admin Dashboard for Adding new Products and Managing Sales
-- [ ] Consider switch to serverless functions (?)
+- [ ] Add GDPR Consent Banners
