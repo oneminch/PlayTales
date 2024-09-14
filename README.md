@@ -5,7 +5,7 @@ An online store for purchasing story-driven games.
 ![Screenshot](/frontend/public/screenshot.png)
 
 > [!tip]
-> Project is deployable on multiple ways: Docker, [Render](https://render.com) and [Vercel](https://vercel.com).
+> The project can be deployed in multiple ways: Docker, [Render](https://render.com) and [Vercel](https://vercel.com).
 >
 > The [`main`](https://github.com/oneminch/PlayTales/tree/main) branch contains the code for Vercel.
 >
