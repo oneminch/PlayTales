@@ -10,10 +10,8 @@
     "reset": "pnpm dlx prisma migrate reset && pnpm dlx prisma db push && pnpm dlx prisma generate"
   },
   "prisma": {
-    "schema": "src/prisma/schema.prisma"
+    "schema": "./src/prisma/schema.prisma"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.10.2",
