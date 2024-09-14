@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - frontend_app:/usr/src/app/dist
+      - /usr/src/app/node_modules
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/${DB_NAME}?schema=public
+      SUPABASE_PROJECT_URL: ${SUPABASE_PROJECT_URL}
+      SUPABASE_PUBLIC_ANON_KEY: ${SUPABASE_PUBLIC_ANON_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
+    volumes:
+      - frontend_app:/usr/src/app/public
+
+volumes:
+  frontend_app:
+  pg_data:

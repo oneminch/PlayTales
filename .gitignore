@@ -160,3 +160,4 @@ dist
 data.json
 Template.tsx
 build/
+*.sql

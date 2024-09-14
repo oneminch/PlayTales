@@ -13,9 +13,8 @@ const app = express();
 
 const PORT = process.env.PORT || 8888;
 
-const frontendDir = path.join(__dirname, "..", "..", "frontend", "dist");
+const frontendDir = path.join(__dirname, "..", "public");
 
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(frontendDir));
 app.use(express.json());
 app.use(cookieParser());
