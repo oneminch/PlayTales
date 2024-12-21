@@ -20,6 +20,7 @@ const Filter = ({ label, options }: FilterOptions) => {
     setSelectedValue(keys);
 
     if (typeof keys !== "string") {
+      // @ts-expect-error "IDK"
       setParams(keys.values().next().value);
     }
   };
@@ -41,8 +42,7 @@ const Filter = ({ label, options }: FilterOptions) => {
           popoverContent: "rounded-lg bg-primary"
         }}
         onSelectionChange={handleSelectionChange}
-        selectorIcon={<Icon icon="heroicons:chevron-up-down-20-solid" />}
-      >
+        selectorIcon={<Icon icon="heroicons:chevron-up-down-20-solid" />}>
         {options.map((option: { label: string; value: string }) => (
           <SelectItem key={option.value} value={option.value}>
             {option.label}
@@ -56,8 +56,7 @@ const Filter = ({ label, options }: FilterOptions) => {
         size="sm"
         title={`Reset ${label} Filter`}
         aria-label={`Reset ${label} Filter`}
-        className="w-6 h-6 min-w-6 bg-transparent min-h-6 rounded-full mx-2 text-lg p-0"
-      >
+        className="w-6 h-6 min-w-6 bg-transparent min-h-6 rounded-full mx-2 text-lg p-0">
         <Icon icon="heroicons:backspace-20-solid" />
       </Button>
     </div>

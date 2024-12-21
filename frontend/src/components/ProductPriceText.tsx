@@ -3,11 +3,11 @@ import { cn } from "@nextui-org/react";
 const ProductPriceText = ({
   price,
   discount,
-  className
+  className = ""
 }: {
   price: number;
   discount: number;
-  className: string;
+  className?: string;
 }) => {
   return (
     <p className={cn("w-full text-sm space-x-2", className)}>
@@ -28,10 +28,6 @@ const ProductPriceText = ({
       )}
     </p>
   );
-};
-
-ProductPriceText.defaultProps = {
-  className: ""
 };
 
 export default ProductPriceText;

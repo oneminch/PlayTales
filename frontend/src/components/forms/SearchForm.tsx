@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-const SearchForm = ({ className }: { className: string }) => {
+const SearchForm = ({ className = "" }: { className?: string }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchUrl, setSearchUrl] = useState("");
   const [isSearching, setIsSearching] = useState(false);
@@ -61,8 +61,7 @@ const SearchForm = ({ className }: { className: string }) => {
     <section className={cn("w-full relative group", className)}>
       <form
         onSubmit={handleSubmit}
-        className="w-full h-10 flex items-center text-lg"
-      >
+        className="w-full h-10 flex items-center text-lg">
         <Input
           type="text"
           radius="md"
@@ -88,8 +87,7 @@ const SearchForm = ({ className }: { className: string }) => {
       </form>
       {isSearching && (
         <div
-          className={`w-full rounded-lg z-50 absolute top-full mt-1 shadow-lg left-0 bg-primary border border-secondary transition-all duration-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible translate-y-2 opacity-0 invisible`}
-        >
+          className={`w-full rounded-lg z-50 absolute top-full mt-1 shadow-lg left-0 bg-primary border border-secondary transition-all duration-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible translate-y-2 opacity-0 invisible`}>
           <Listbox
             shouldFocusWrap={true}
             aria-label="Search Suggestions"
@@ -97,8 +95,7 @@ const SearchForm = ({ className }: { className: string }) => {
             onAction={() => {
               afterSearch();
             }}
-            disabledKeys={["loading", "error", "empty"]}
-          >
+            disabledKeys={["loading", "error", "empty"]}>
             <ListboxSection showDivider={data && data.count > 0}>
               {isFetching && !isError && (
                 <ListboxItem key="loading" className="rounded-lg text-center">
@@ -121,8 +118,7 @@ const SearchForm = ({ className }: { className: string }) => {
                     key={suggestion.id}
                     textValue={suggestion.title}
                     className="rounded-lg"
-                    href={`/products/${suggestion.id}`}
-                  >
+                    href={`/products/${suggestion.id}`}>
                     <SearchItem product={suggestion} />
                   </ListboxItem>
                 ))}
@@ -131,14 +127,12 @@ const SearchForm = ({ className }: { className: string }) => {
               className={cn(
                 "w-full",
                 isSearching && data.count > 0 ? "block" : "hidden"
-              )}
-            >
+              )}>
               <ListboxItem
                 className="text-center py-2 w-full h-full rounded-lg bg-foreground text-background"
                 key="show-all-results"
                 textValue="Show All Results"
-                href={searchUrl && searchUrl}
-              >
+                href={searchUrl && searchUrl}>
                 Show All Results
               </ListboxItem>
             </ListboxSection>
@@ -147,10 +141,6 @@ const SearchForm = ({ className }: { className: string }) => {
       )}
     </section>
   );
-};
-
-SearchForm.defaultProps = {
-  className: ""
 };
 
 export default SearchForm;

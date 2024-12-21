@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 const seoDescription = "PlayTales - Play Your Next Tale.";
 
-const Layout: React.FC<LayoutProps> = ({ title, children, className }) => {
+const Layout: React.FC<LayoutProps> = ({ title, children, className = "" }) => {
   const [seoTitle, setSeoTitle] = useState(
     title ? `${title} · PlayTales` : "PlayTales"
   );
@@ -36,10 +36,6 @@ const Layout: React.FC<LayoutProps> = ({ title, children, className }) => {
       {children}
     </div>
   );
-};
-
-Layout.defaultProps = {
-  className: ""
 };
 
 export default Layout;

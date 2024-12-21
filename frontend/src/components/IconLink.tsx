@@ -5,12 +5,12 @@ const IconLink = ({
   path,
   icon,
   label,
-  className
+  className = ""
 }: {
   path: string;
   icon: string;
   label: string;
-  className: string;
+  className?: string;
 }) => {
   return (
     <Link
@@ -20,15 +20,10 @@ const IconLink = ({
       className={cn(
         "w-10 h-10 flex items-center justify-center text-lg border border-secondary rounded-lg text-foreground bg-primary",
         className
-      )}
-    >
+      )}>
       <Icon icon={icon} />
     </Link>
   );
-};
-
-IconLink.defaultProps = {
-  className: ""
 };
 
 export default IconLink;

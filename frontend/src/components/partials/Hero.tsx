@@ -1,11 +1,11 @@
 import { Image, Link, cn } from "@nextui-org/react";
 
 const Hero = ({
-  className,
+  className = "",
   textLabel,
   actionLink
 }: {
-  className: string;
+  className?: string;
   textLabel: string;
   actionLink?: Record<string, string>;
 }) => {
@@ -14,8 +14,7 @@ const Hero = ({
       className={cn(
         "flex flex-col items-center justify-center rounded-lg gap-y-12 w-full",
         className
-      )}
-    >
+      )}>
       <div className="relative w-20 h-28 sm:w-24 sm:h-32">
         {[1, 2, 3].map((poster) => (
           <Image
@@ -34,17 +33,12 @@ const Hero = ({
       {actionLink && (
         <Link
           href={actionLink.url}
-          className="px-4 py-1.5 rounded-lg font-medium text-primary bg-foreground"
-        >
+          className="px-4 py-1.5 rounded-lg font-medium text-primary bg-foreground">
           {actionLink.label}
         </Link>
       )}
     </section>
   );
-};
-
-Hero.defaultProps = {
-  className: ""
 };
 
 export default Hero;

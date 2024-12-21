@@ -7,14 +7,14 @@ const Placeholder = ({
   showIf,
   secondaryText,
   actionLink,
-  className
+  className = ""
 }: {
   icon?: string;
   primaryText: string;
   showIf: boolean;
   secondaryText?: string;
   actionLink?: Record<string, string>;
-  className: string;
+  className?: string;
 }) => {
   return (
     showIf && (
@@ -22,8 +22,7 @@ const Placeholder = ({
         className={cn(
           "flex flex-col items-center justify-center gap-y-4 rounded-lg p-6 text-primary-foreground min-h-56",
           className
-        )}
-      >
+        )}>
         {icon && <Icon className="text-5xl" icon={icon} />}
         <h3 className="text-lg sm:text-xl font-semibold text-center">
           {primaryText}
@@ -32,18 +31,13 @@ const Placeholder = ({
         {actionLink && (
           <Link
             href={actionLink.url}
-            className="px-4 py-1.5 rounded-lg font-medium text-foreground bg-background"
-          >
+            className="px-4 py-1.5 rounded-lg font-medium text-foreground bg-background">
             {actionLink.label}
           </Link>
         )}
       </div>
     )
   );
-};
-
-Placeholder.defaultProps = {
-  className: ""
 };
 
 export default Placeholder;
