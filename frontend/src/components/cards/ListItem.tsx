@@ -20,16 +20,15 @@ const ListItem = ({ product }: { product: Product }) => {
     <div className={cn("relative rounded-xl", !isProductWishlisted && "group")}>
       <Link
         href={`/products/${product.id}`}
-        className="p-1 pb-2 rounded-xl flex flex-col gap-y-1 items-start no-underline text-foreground"
-      >
+        className="p-1 pb-2 rounded-xl flex flex-col gap-y-1 items-start no-underline text-foreground">
         <Image
           width={200}
-          height={250}
-          className="max-w-full min-h-full mx-auto rounded-xl shadow opacity-100"
+          // height={250}
+          className="w-full h-auto max-w-full min-h-full mx-auto rounded-xl shadow opacity-100"
           alt={`Poster Image for "${product.title}"`}
           src={product.poster}
           classNames={{
-            img: "flex items-center justify-center text-center"
+            img: "flex items-center justify-center text-center object-cover"
           }}
         />
         <p className="font-bold text-sm text-left">{product.title}</p>
@@ -45,8 +44,7 @@ const ListItem = ({ product }: { product: Product }) => {
         onPress={handleToggleWishlist}
         aria-label={wishlistAction}
         title={wishlistAction}
-        size="sm"
-      >
+        size="sm">
         {isProductWishlisted ? (
           <Icon icon="heroicons:heart-20-solid" className="text-focus" />
         ) : (

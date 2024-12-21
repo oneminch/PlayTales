@@ -20,9 +20,9 @@ const Hero = ({
           <Image
             key={poster}
             width={96}
-            height={128}
+            // height={128}
             removeWrapper
-            className="min-w-full min-h-full absolute top-2 bottom-0 left-0 right-0 rounded-md origin-bottom shadow-md ring-1 ring-primary bg-primary first:rotate-12 first:translate-x-12 even:-rotate-12 even:-translate-x-12 last:inset-0 last:scale-110 last:ring-0 last:-translate-y-0"
+            className="w-full h-auto absolute top-2 bottom-0 left-0 right-0 rounded-md origin-bottom shadow-md ring-1 ring-primary bg-primary first:rotate-12 first:translate-x-12 even:-rotate-12 even:-translate-x-12 last:inset-0 last:scale-110 last:ring-0 last:-translate-y-0"
             src={`/posters/${poster}.png`}
           />
         ))}
